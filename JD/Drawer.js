@@ -228,4 +228,168 @@ Drawer.prototype.ClearRect = function(x1, y1, x2, y2)
 }
 
 //--------------------------------------------------------------------------------------------------
+// Circle.
+//--------------------------------------------------------------------------------------------------
+
+// Draw circle in canvas coordinates.
+//
+// Arguments:
+//   x - x coorfinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.DrawCircleI = function(x, y, r)
+{
+    with (this.Context)
+    {
+        beginPath();
+        arc(x, y, r, 0, 2 * Math.PI);
+        stroke();
+        closePath();
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Draw point in canvas coordinates (equal to DrawCircleI).
+//
+// Arguments:
+//   x - x coorfinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.DrawPointI = function(x, y, r)
+{
+    this.DrawCircleI(x, y, r);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Draw circle.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.DrawCircle = function(x, y, r)
+{
+    if (r > 0)
+    {
+        var tx = this.TX(x);
+        var ty = this.TY(y);
+        var tx1 = this.TX(x + r);
+        var ty1 = this.TY(y + r);
+        var dy = Math.abs(ty1 - ty);
+
+        with (this.Context)
+        {
+            save();
+            beginPath();
+            translate(tx, ty);
+            scale(Math.abs((tx1 - tx) / dy), 1);
+            arc(0, 0, dy, 0, 2 * Math.PI);
+            stroke();
+            restore();
+            closePath();
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Draw point.
+// Radius is constant.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.DrawPoint = function(x, y, r)
+{
+    var tx = this.TX(x);
+    var ty = this.TY(y);
+
+    this.DrawPointI(tx, ty, r);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Fill circle in canvas coordinates.
+//
+// Arguments:
+//   x - x coorfinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.FillCircleI = function(x, y, r)
+{
+    with (this.Context)
+    {
+        beginPath();
+        arc(x, y, r, 0, 2 * Math.PI);
+        fill();
+        closePath();
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Fill point in canvas coordinates (equal to FillCircleI).
+//
+// Arguments:
+//   x - x coorfinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.FillPointI = function(x, y, r)
+{
+    this.FillCircleI(x, y, r);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Fill circle.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.FillCircle = function(x, y, r)
+{
+    if (r > 0)
+    {
+        var tx = this.TX(x);
+        var ty = this.TY(y);
+        var tx1 = this.TX(x + r);
+        var ty1 = this.TY(y + r);
+        var dy = Math.abs(ty1 - ty);
+
+        with (this.Context)
+        {
+            save();
+            beginPath();
+            translate(tx, ty);
+            scale(Math.abs((tx1 - tx) / dy), 1);
+            arc(0, 0, dy, 0, 2 * Math.PI);
+            fill();
+            restore();
+            closePath();
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Fill point.
+// Radius is constant.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   r - radius.
+Drawer.prototype.FillPoint = function(x, y, r)
+{
+    var tx = this.TX(x);
+    var ty = this.TY(y);
+
+    this.FillPointI(tx, ty, r);
+}
+
+//--------------------------------------------------------------------------------------------------
 

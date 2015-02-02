@@ -12,7 +12,7 @@
 // Load document.
 function OnLoad()
 {
-    Drawer = new Drawer("test_canvas", 200, 100, false, true);
+    Drawer = new Drawer("test_canvas", 300, 100, false, true);
 
     // Simple rectangles in block (0, 0) - (100, 100).
     Drawer.SetColor("black");
@@ -59,6 +59,33 @@ function OnLoad()
     Drawer.DrawLine(195, 75, 105, 85);
     Drawer.SetColor("slateblue");
     Drawer.DrawLine(195, 85, 105, 95);
+
+    // Simple circles in block (200, 0) - (300, 100).
+    Drawer.SetFillColor("indianred");
+    Drawer.FillCircle(250, 50, 15);
+    Drawer.SetFillColor("deepgray");
+    Drawer.FillCircle(270, 70, 10);
+    Drawer.SetFillColor("lightskyblue");
+    Drawer.FillPoint(230, 70, 25);
+    Drawer.SetFillColor("gold");
+    Drawer.FillCircle(270, 30, 12);
+    Drawer.SetFillColor("darkslategray");
+    Drawer.FillPoint(230, 30, 20);
+    Drawer.SetLineWidth(1);
+    Drawer.SetColor("indianred");
+    Drawer.DrawCircle(250, 50, 35);
+    Drawer.SetLineWidth(2);
+    Drawer.SetColor("blue");
+    Drawer.DrawCircle(260, 40, 35);
+    Drawer.SetLineWidth(4);
+    Drawer.SetColor("maroon");
+    Drawer.DrawCircle(240, 40, 35);
+    Drawer.SetLineWidth(1);
+    Drawer.SetColor("teal");
+    Drawer.DrawCircle(260, 60, 35);
+    Drawer.SetLineWidth(6);
+    Drawer.SetColor("cadetblue");
+    Drawer.DrawCircle(240, 60, 35);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -68,7 +95,7 @@ function OnLoad()
         </script>
     </head>
     <body onload="OnLoad()">
-        <canvas width="600" height="400" id="test_canvas"/>
+        <canvas width="600" height="300" id="test_canvas"/>
     </body>
 </html>
 
