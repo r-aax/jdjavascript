@@ -15,6 +15,8 @@ function OnLoad()
     Drawer = new Drawer("test_canvas");
 
     // Simple rectangles in block (0, 0) - (100, 100).
+    Drawer.SetColor("black");
+    Drawer.SetLineWidth(1);
     Drawer.DrawRect(5, 5, 45, 45);
     Drawer.SetLineWidth(4);
     Drawer.SetColor("red");
@@ -30,6 +32,33 @@ function OnLoad()
     Drawer.ClearRect(100, 0, 85, 15);
     Drawer.ClearRect(0, 100, 15, 85);
     Drawer.ClearRect(100, 100, 85, 85);
+
+    // Simple lines in block (100, 0) - (200, 100).
+    Drawer.SetColor("steelblue");
+    for (var i = 1; i < 10; i++)
+    {
+        Drawer.SetLineWidth(i);
+        Drawer.DrawLine(105 + (i - 1) * 10, 5, 105 + i * 10, 95);
+    }
+    Drawer.SetLineWidth(1);
+    Drawer.SetColor("indianred");
+    Drawer.DrawLine(195, 5, 105, 15);
+    Drawer.SetColor("chocolate");
+    Drawer.DrawLine(195, 15, 105, 25);
+    Drawer.SetColor("beige");
+    Drawer.DrawLine(195, 25, 105, 35);
+    Drawer.SetColor("deeppink");
+    Drawer.DrawLine(195, 35, 105, 45);
+    Drawer.SetColor("mediumseagreen");
+    Drawer.DrawLine(195, 45, 105, 55);
+    Drawer.SetColor("midnightblue");
+    Drawer.DrawLine(195, 55, 105, 65);
+    Drawer.SetColor("gray");
+    Drawer.DrawLine(195, 65, 105, 75);
+    Drawer.SetColor("darksalmon");
+    Drawer.DrawLine(195, 75, 105, 85);
+    Drawer.SetColor("slateblue");
+    Drawer.DrawLine(195, 85, 105, 95);
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 // Constructor.
 //
 // Arguments:
-//   id - canvas identifier
+//   id - canvas identifier.
 function Drawer(id)
 {
     this.Canvas = document.getElementById(id);
@@ -47,6 +47,29 @@ Drawer.prototype.SetFillColor = function(s)
 Drawer.prototype.SetLineWidth = function(w)
 {
     this.Context.lineWidth = w;
+}
+
+//--------------------------------------------------------------------------------------------------
+// Line.
+//--------------------------------------------------------------------------------------------------
+
+// Drawer line.
+//
+// Arguments:
+//   x1 - x coordinate of the first point,
+//   y1 - y coordinate of the first point,
+//   x2 - x coordinate of the second point,
+//   y2 - y coordinate of the second point.
+Drawer.prototype.DrawLine = function(x1, y1, x2, y2)
+{
+    with (this.Context)
+    {
+        beginPath();
+        moveTo(x1, y1);
+        lineTo(x2, y2);
+        stroke();
+        closePath();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
