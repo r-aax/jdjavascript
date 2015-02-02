@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draw Test</title>
+        <script src="../../JD/Drawer.js"></script>
+        <script>
+
+<!--
+
+//--------------------------------------------------------------------------------------------------
+
+// Load document.
+function OnLoad()
+{
+    Drawer = new Drawer("test_canvas");
+
+    // Simple rectangles in block (0, 0) - (100, 100).
+    Drawer.DrawRect(5, 5, 45, 45);
+    Drawer.SetLineWidth(4);
+    Drawer.SetColor("red");
+    Drawer.DrawRect(30, 30, 70, 70);
+    Drawer.SetLineWidth(1);
+    Drawer.SetColor("blue");
+    Drawer.DrawRect(55, 55, 95, 95);
+    Drawer.SetFillColor("green");
+    Drawer.FillRect(55, 5, 95, 45);
+    Drawer.SetFillColor("indianred");
+    Drawer.FillRect(5, 55, 45, 95);
+    Drawer.ClearRect(0, 0, 15, 15);
+    Drawer.ClearRect(100, 0, 85, 15);
+    Drawer.ClearRect(0, 100, 15, 85);
+    Drawer.ClearRect(100, 100, 85, 85);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+-->
+
+        </script>
+    </head>
+    <body onload="OnLoad()">
+        <canvas width="600" height="400" id="test_canvas"/>
+    </body>
+</html>
+
