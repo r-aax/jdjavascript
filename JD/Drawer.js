@@ -85,6 +85,17 @@ Drawer.prototype.SetLineWidth = function(w)
 }
 
 //--------------------------------------------------------------------------------------------------
+
+// Set font.
+//
+// Arguments:
+//   font - font description.
+Drawer.prototype.SetFont = function(font)
+{
+    this.Context.font = font;
+}
+
+//--------------------------------------------------------------------------------------------------
 // Line.
 //--------------------------------------------------------------------------------------------------
 
@@ -389,6 +400,37 @@ Drawer.prototype.FillPoint = function(x, y, r)
     var ty = this.TY(y);
 
     this.FillPointI(tx, ty, r);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Text.
+//--------------------------------------------------------------------------------------------------
+
+// Draw text in canvas coordinates.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   text - text to draw.
+Drawer.prototype.DrawTextI = function(x, y, text)
+{
+    this.Context.fillText(text, x, y);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Draw text.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   text - text to draw.
+Drawer.prototype.DrawText = function(x, y, text)
+{
+    var tx = this.TX(x);
+    var ty = this.TY(y);
+
+    this.DrawTextI(tx, ty, text);
 }
 
 //--------------------------------------------------------------------------------------------------

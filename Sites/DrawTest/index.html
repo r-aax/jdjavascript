@@ -12,7 +12,7 @@
 // Load document.
 function OnLoad()
 {
-    Drawer = new Drawer("test_canvas", 300, 100, false, true);
+    Drawer = new Drawer("test_canvas", 400, 100, false, true);
 
     // Simple rectangles in block (0, 0) - (100, 100).
     Drawer.SetColor("black");
@@ -40,12 +40,12 @@ function OnLoad()
         Drawer.SetLineWidth(i);
         Drawer.DrawLine(105 + (i - 1) * 10, 5, 105 + i * 10, 95);
     }
-    Drawer.SetLineWidth(1);
+    Drawer.SetLineWidth(2);
     Drawer.SetColor("indianred");
     Drawer.DrawLine(195, 5, 105, 15);
     Drawer.SetColor("chocolate");
     Drawer.DrawLine(195, 15, 105, 25);
-    Drawer.SetColor("beige");
+    Drawer.SetColor("silver");
     Drawer.DrawLine(195, 25, 105, 35);
     Drawer.SetColor("deeppink");
     Drawer.DrawLine(195, 35, 105, 45);
@@ -86,6 +86,24 @@ function OnLoad()
     Drawer.SetLineWidth(6);
     Drawer.SetColor("cadetblue");
     Drawer.DrawCircle(240, 60, 35);
+
+    // Simple draw text test.
+    Drawer.SetFont("bold 200px verdana");
+    Drawer.SetFillColor("lightblue");
+    Drawer.DrawText(305, 5, "X");
+    Drawer.DrawText(310, 50, "@");
+    Drawer.SetFont("bold 17px sans-serif");
+    Drawer.SetFillColor("black");
+    Drawer.DrawText(310, 50, "bold 17px sans-serif");
+    Drawer.SetFont("italic 19px times-new-roman");
+    Drawer.SetFillColor("steelblue");
+    Drawer.DrawText(320, 20, "Times New Roman");
+    Drawer.SetFont("24px lucida-console");
+    Drawer.SetFillColor("indianred");
+    Drawer.DrawText(310, 60, "Lucida");
+    Drawer.SetFont("12px arial");
+    Drawer.SetFillColor("darkgreen");
+    Drawer.DrawText(370, 80, "NARROW");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -95,7 +113,7 @@ function OnLoad()
         </script>
     </head>
     <body onload="OnLoad()">
-        <canvas width="600" height="300" id="test_canvas"/>
+        <canvas width="800" height="300" id="test_canvas"/>
     </body>
 </html>
 
