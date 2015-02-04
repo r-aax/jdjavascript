@@ -1,0 +1,117 @@
+<!--
+Tetris.
+
+Copyright Joy Developing.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tetris</title>
+        <script src="../../JD/Drawer.js"></script>
+        <script src="Board.js"></script>
+        <script>
+
+<!--
+
+//--------------------------------------------------------------------------------------------------
+
+// Load document.
+function OnLoad()
+{
+    Drawer = new Drawer("canvas", 10, 15, false, true);
+    Board = new Board(15, 10, Drawer);
+
+    Drawer.SetFillColor("lightgray");
+    Drawer.Fill();
+
+    Board.Draw();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Key down.
+//
+// Arguments:
+//   e - event attributes.
+function OnKeyDown(e)
+{
+    switch (e.keyCode)
+    {
+        case 39:
+            OnRightArrowKeyDown();
+            break;
+
+        case 37:
+            OnLeftArrowKeyDown();
+            break;
+
+        case 38:
+            OnUpArrowKeyDown();
+            break;
+
+        case 40:
+            OnDownArrowKeyDown();
+            break;
+
+        case 32:
+            OnSpaceKeyDown();
+            break;
+
+        // No reaction on other keys down events.
+        default:
+            break;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Right arrow key down.
+function OnRightArrowKeyDown()
+{
+    alert("right arrow");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Left arrow key down.
+function OnLeftArrowKeyDown()
+{
+    alert("left arrow");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Up arrow key down.
+function OnUpArrowKeyDown()
+{
+    alert("up arrow");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Down arrow key down.
+function OnDownArrowKeyDown()
+{
+    alert("down arrow");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Space key down.
+function OnSpaceKeyDown()
+{
+    alert("space");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+-->
+
+        </script>
+    </head>
+    <body onload="OnLoad()" onkeydown="OnKeyDown(event)">
+        <canvas width="400" height="600" id="canvas"/>
+    </body>
+</html>
+

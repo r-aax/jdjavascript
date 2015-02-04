@@ -239,6 +239,22 @@ Drawer.prototype.ClearRect = function(x1, y1, x2, y2)
 }
 
 //--------------------------------------------------------------------------------------------------
+
+// Fill whole area of drawing.
+Drawer.prototype.Fill = function()
+{
+    this.FillRectI(0, 0, this.Canvas.width, this.Canvas.height);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Clear whole area of drawing.
+Drawer.prototype.Clear = function()
+{
+    this.ClearRectI(0, 0, this.Canvas.width, this.Canvas.height);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Circle.
 //--------------------------------------------------------------------------------------------------
 
