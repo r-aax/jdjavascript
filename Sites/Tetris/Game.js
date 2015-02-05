@@ -129,7 +129,6 @@ Game.prototype.LeftWithCheck = function()
 
 // Down with check.
 //
-
 // Result:
 //   true - if we have moved,
 //   false - otherwise.
@@ -138,6 +137,28 @@ Game.prototype.DownWithCheck = function()
     var save = this.Figure.Clone();
 
     this.Figure.Down();
+    if (!this.IsFigureCorrect())
+    {
+        this.Figure = save;
+
+        return false;
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Rotate with check.
+//
+// Result:
+//   true - if we have rotated,
+//   false - otherwise.
+Game.prototype.RotWithCheck = function()
+{
+    var save = this.Figure.Clone();
+
+    this.Figure.RotL();
     if (!this.IsFigureCorrect())
     {
         this.Figure = save;
@@ -166,11 +187,12 @@ Game.prototype.FixFigure = function()
 // Game step.
 Game.prototype.Step = function()
 {
- //   JD.Utils.Check(this.Figure != undefined);
+    JD.Utils.Check(this.Figure != undefined);
 
     if (!this.DownWithCheck())
     {
         this.FixFigure();
+        this.Board.RemoveFullLines();
         this.CreateNewFigure();
     }
 }

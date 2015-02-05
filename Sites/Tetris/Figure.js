@@ -36,10 +36,10 @@ Figure.RandomFigure = function(row, col, drawer)
 {
     var names = ["r", "rr", "rrr", "rru", "rrrr", "rrul", "rrru",
                  "rrrd", "rrur", "rrdr", "rr(r,u)", "star5"];
+    var type = JD.Utils.RandomArrayElement(names);
 
-    return new Figure(JD.Utils.RandomArrayElement(names),
-                      JD.Utils.RandomN(0, 3),
-                      row, col, "indianred", drawer);
+    return new Figure(type, JD.Utils.RandomN(0, 3),
+                      row, col, Figure.DefaultColor(type), drawer);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -81,6 +81,59 @@ Figure.prototype.Draw = function()
     for (var i = 0; i < cells.length; i++)
     {
         this.DrawCell(cells[i].R, cells[i].C, this.Color);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Default color.
+//
+// Arguments:
+//   type - figure type.
+Figure.DefaultColor = function(type)
+{
+    // More colors: #5b3e14, #5b5114, #465613, #0f4222.
+
+    switch (type)
+    {
+        case "r":
+            return "#8c3e3e";
+
+        case "rr":
+            return "#2f6a3c";
+
+        case "rrr":
+            return "#8c7f3e";
+
+        case "rru":
+            return "#3d3160";
+
+        case "rrrr":
+            return "#552a5c";
+
+        case "rrul":
+            return "#8c6b3e";
+
+        case "rrru":
+            return "#79873c";
+
+        case "rrrd":
+            return "#2d425b";
+
+        case "rrur":
+            return "#0f233b";
+
+        case "rrdr":
+            return "#1e103e";
+
+        case "rr(r,u)":
+            return "#430f36";
+
+        case "star5":
+            return "#5b1514";
+
+        default:
+            return "black";
     }
 }
 
