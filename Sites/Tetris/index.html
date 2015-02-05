@@ -8,6 +8,7 @@ Copyright Joy Developing.
 <html>
     <head>
         <title>Tetris</title>
+        <script src="../../JD/Utils.js"></script>
         <script src="../../JD/Drawer.js"></script>
         <script src="Board.js"></script>
         <script src="Figure.js"></script>
@@ -15,13 +16,34 @@ Copyright Joy Developing.
 
 <!--
 
+// Drawer.
+var D;
+
+// Board.
+var B;
+
+// Figure.
+var F;
+
+//--------------------------------------------------------------------------------------------------
+
+// Next step of game.
+function Step()
+{
+    F = Figure.RandomFigure(5, 5, D);
+}
+
 //--------------------------------------------------------------------------------------------------
 
 // Redraw.
 function Draw()
 {
-    Board.Draw();
-    Figure.Draw();
+    B.Draw();
+
+    if (F)
+    {
+        F.Draw();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -29,11 +51,20 @@ function Draw()
 // Load document.
 function OnLoad()
 {
-    Drawer = new Drawer("canvas", 10, 15, false, true);
-    Board = new Board(15, 10, Drawer);
-    Figure = new Figure("rrrd", 0, 5, 5, "steelblue", Drawer);
+    D = new Drawer("canvas", 10, 15, false, true);
+    B = new Board(15, 10, D);
 
     Draw();
+    JD.Utils.SetInterval
+    (
+        function()
+        {
+            Step();
+            Draw();
+        },
+        "draw",
+        1000
+    );
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -93,7 +124,7 @@ function OnLeftArrowKeyDown()
 // Up arrow key down.
 function OnUpArrowKeyDown()
 {
-    Figure.RotL();
+    F.RotL();
     Draw();
 }
 

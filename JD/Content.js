@@ -1,11 +1,8 @@
-/**
- * Content.js.
- *
- * Copyright Joy Developing.
- */
+// Content.js.
+//
+// Copyright Joy Developing.
 
 // Initialize.
-var JD;
 if (!JD) JD = {};
 JD.Content = {};
 

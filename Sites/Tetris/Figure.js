@@ -2,6 +2,8 @@
 //
 // Copyright Joy Developing.
 
+//--------------------------------------------------------------------------------------------------
+
 // Constructor.
 //
 // Arguments:
@@ -18,6 +20,24 @@ function Figure(type, orient, row, col, color, drawer)
     this.Col = col;
     this.Color = color;
     this.Drawer = drawer;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Get random figure.
+//
+// Arguments:
+//   row - base cell row,
+//   col - base cell column,
+//   drawer - drawer.
+Figure.RandomFigure = function(row, col, drawer)
+{
+    var names = ["r", "rr", "rrr", "rru", "rrrr", "rrul", "rrru",
+                 "rrrd", "rrur", "rrdr", "rr(r,u)", "star5"];
+
+    return new Figure(JD.Utils.RandomArrayElement(names),
+                      JD.Utils.RandomN(0, 3),
+                      row, col, "indianred", drawer);
 }
 
 //--------------------------------------------------------------------------------------------------
