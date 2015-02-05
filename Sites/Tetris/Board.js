@@ -13,7 +13,11 @@
 function Board(rows, cols, drawer)
 {
     this.Rows = rows;
+    this.MinRow = 0;
+    this.MaxRow = rows - 1;
     this.Cols = cols;
+    this.MinCol = 0;
+    this.MaxCol = cols - 1;
     this.M = new Array(rows);
     for (var i = 0; i < rows; i++)
     {

@@ -441,3 +441,54 @@ Figure.prototype.RotL = function()
 
 //--------------------------------------------------------------------------------------------------
 
+// Autoposition.
+// Move upper figure cell to given row.
+//
+// Arguments:
+//   row - upper row of figure,
+//   left - left column,
+//   right - right column of align.
+Figure.prototype.Autoposition = function(row, left, right)
+{
+    var cells = this.Cells();
+    var max_row = -1;
+    var min_col = -1;
+    var max_col = -1;
+
+    for (var i in cells)
+    {
+        if (cells[i].R > max_row)
+        {
+            max_row = cells[i].R;
+        }
+
+        if ((min_col == -1) || (cells[i].C < min_col))
+        {
+            min_col = cells[i].C;
+        }
+
+        if (cells[i].C > max_col)
+        {
+            max_col = cells[i].C;
+        }
+    }
+
+    // Upper position.
+    this.Row += (row - max_row);
+
+    // Center.
+    var dl = min_col - left;
+    var dr = right - max_col;
+
+    if (dl > dr + 1)
+    {
+        this.Col -= Math.floor((dl - dr) / 2);
+    }
+    else if (dr > dl + 1)
+    {
+        this.Col += Math,floor((dr - dl) / 2);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
