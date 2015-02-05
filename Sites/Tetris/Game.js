@@ -29,7 +29,7 @@ function Game(canvas, rows, cols)
             th.Draw();
         },
         "draw",
-        1000
+        500
     );
 }
 
@@ -61,15 +61,18 @@ Game.prototype.CreateNewFigure = function()
 
 //--------------------------------------------------------------------------------------------------
 
-// Check possibility to move figure down on 1 cell.
-Game.prototype.IsPossibleFigureDown = function()
+// Check if figure position is correct.
+Game.prototype.IsFigureCorrect = function()
 {
     var cells = this.Figure.Cells();
 
     for (var i in cells)
     {
-        if ((cells[i].R == 0)
-            || (this.Board.M[cells[i].R - 1][cells[i].C] != undefined))
+        var c = cells[i];
+
+        if ((c.R < this.Board.MinRow) || (c.R > this.Board.MaxRow)
+            || (c.C < this.Board.MinCol) || (c.C > this.Board.MaxCol)
+            || (this.Board.M[c.R][c.C] != undefined))
         {
             return false;
         }
@@ -80,14 +83,95 @@ Game.prototype.IsPossibleFigureDown = function()
 
 //--------------------------------------------------------------------------------------------------
 
+// Right with check.
+//
+// Result:
+//   true - if we have moved,
+//   false - otherwise.
+Game.prototype.RightWithCheck = function()
+{
+    var save = this.Figure.Clone();
+
+    this.Figure.Right();
+    if (!this.IsFigureCorrect())
+    {
+        this.Figure = save;
+
+        return false;
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Left with check.
+//
+// Result:
+//   true - if we have moved,
+//   false - otherwise.
+Game.prototype.LeftWithCheck = function()
+{
+    var save = this.Figure.Clone();
+
+    this.Figure.Left();
+    if (!this.IsFigureCorrect())
+    {
+        this.Figure = save;
+
+        return false;
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Down with check.
+//
+
+// Result:
+//   true - if we have moved,
+//   false - otherwise.
+Game.prototype.DownWithCheck = function()
+{
+    var save = this.Figure.Clone();
+
+    this.Figure.Down();
+    if (!this.IsFigureCorrect())
+    {
+        this.Figure = save;
+
+        return false;
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Fix figure on board.
+Game.prototype.FixFigure = function()
+{
+    var cells = this.Figure.Cells();
+
+    for (var i in cells)
+    {
+        this.Board.M[cells[i].R][cells[i].C] = this.Figure.Color;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Game step.
 Game.prototype.Step = function()
 {
-    JD.Utils.Check(this.Figure != undefined);
+ //   JD.Utils.Check(this.Figure != undefined);
 
-    if (this.IsPossibleFigureDown())
+    if (!this.DownWithCheck())
     {
-        this.Figure.Row--;
+        this.FixFigure();
+        this.CreateNewFigure();
     }
 }
 
