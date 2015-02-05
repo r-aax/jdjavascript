@@ -8,6 +8,7 @@ Copyright Joy Developing.
 <html>
     <head>
         <title>Tetris</title>
+        <script src="../../JD/String.js"></script>
         <script src="../../JD/Utils.js"></script>
         <script src="../../JD/Drawer.js"></script>
         <script src="Board.js"></script>
@@ -25,7 +26,7 @@ var G;
 // Load document.
 function OnLoad()
 {
-    G = new Game("canvas", 15, 10);
+    G = new Game("canvas", "info", 15, 10);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -98,8 +99,7 @@ function OnDownArrowKeyDown()
 {
     if (!G.DownWithCheck())
     {
-        G.FixFigure();
-        G.Board.RemoveFullLines();
+        G.FixFigureAndRemoveFullLines();
         G.CreateNewFigure();
     }
 
@@ -121,7 +121,18 @@ function OnSpaceKeyDown()
         </script>
     </head>
     <body onload="OnLoad()" onkeydown="OnKeyDown(event)">
-        <canvas width="200" height="300" id="canvas"/>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <canvas width="200" height="50" id="info"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <canvas width="200" height="300" id="canvas"/>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>
 
