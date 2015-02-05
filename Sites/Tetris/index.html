@@ -12,60 +12,20 @@ Copyright Joy Developing.
         <script src="../../JD/Drawer.js"></script>
         <script src="Board.js"></script>
         <script src="Figure.js"></script>
+        <script src="Game.js"></script>
         <script>
 
 <!--
 
-// Drawer.
-var D;
-
-// Board.
-var B;
-
-// Figure.
-var F;
-
-//--------------------------------------------------------------------------------------------------
-
-// Next step of game.
-function Step()
-{
-    F = Figure.RandomFigure(5, 5, D);
-    F.Autoposition(B.MaxRow, B.MinCol, B.MaxCol);
-}
-
-//--------------------------------------------------------------------------------------------------
-
-// Redraw.
-function Draw()
-{
-    B.Draw();
-
-    if (F)
-    {
-        F.Draw();
-    }
-}
+// Game.
+var G;
 
 //--------------------------------------------------------------------------------------------------
 
 // Load document.
 function OnLoad()
 {
-    D = new Drawer("canvas", 10, 15, false, true);
-    B = new Board(15, 10, D);
-
-    Draw();
-    JD.Utils.SetInterval
-    (
-        function()
-        {
-            Step();
-            Draw();
-        },
-        "draw",
-        1000
-    );
+    G = new Game("canvas", 15, 10);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -125,8 +85,7 @@ function OnLeftArrowKeyDown()
 // Up arrow key down.
 function OnUpArrowKeyDown()
 {
-    F.RotL();
-    Draw();
+    alert("up arrow");
 }
 
 //--------------------------------------------------------------------------------------------------
