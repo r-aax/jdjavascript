@@ -34,8 +34,11 @@ function Figure(type, orient, row, col, color, drawer)
 //   drawer - drawer.
 Figure.RandomFigure = function(row, col, drawer)
 {
-    var names = ["r", "rr", "rrr", "rru", "rrrr", "rrul", "rrru",
-                 "rrrd", "rrur", "rrdr", "rr(r,u)", "star5"];
+    var names = [ "1",
+                  "2",
+                  "3ln", "3an",
+                  "4ln", "4sq", "4anr", "4anl", "4snr", "4snl", "4cr",
+                  "5star" ];
     var type = JD.Utils.RandomArrayElement(names);
 
     return new Figure(type, JD.Utils.RandomN(0, 3),
@@ -96,40 +99,40 @@ Figure.DefaultColor = function(type)
 
     switch (type)
     {
-        case "r":
+        case "1":
             return "#8c3e3e";
 
-        case "rr":
+        case "2":
             return "#2f6a3c";
 
-        case "rrr":
+        case "3ln":
             return "#8c7f3e";
 
-        case "rru":
+        case "3an":
             return "#3d3160";
 
-        case "rrrr":
+        case "4ln":
             return "#552a5c";
 
-        case "rrul":
+        case "4sq":
             return "#8c6b3e";
 
-        case "rrru":
+        case "4anr":
             return "#79873c";
 
-        case "rrrd":
+        case "4anl":
             return "#2d425b";
 
-        case "rrur":
+        case "4snr":
             return "#0f233b";
 
-        case "rrdr":
+        case "4snl":
             return "#1e103e";
 
-        case "rr(r,u)":
+        case "4cr":
             return "#430f36";
 
-        case "star5":
+        case "5star":
             return "#5b1514";
 
         default:
@@ -249,37 +252,34 @@ Figure.prototype.Cells = function()
 
     switch (this.Type)
     {
-        // r - 1 cell.
+        // 1 - 1 cell.
         //
         // Orientation:
         //   0      1      2      3
         //
         //   @  ->  @  ->  @  ->  @
-        case "r":
+        case "1":
             return this.Cells1(r, c);
 
-        // rr - 2 cells line.
+        // 2 - 2 cells line.
         //
         // Orientation:
-        //   0       1       2      3
+        //   0       1      2       3
         //
-        //           #
-        //   @#  ->  @  ->  #@  ->  @
-        //                          #
-        case "rr":
+        //           #              #
+        //   @#  ->  @  ->  @#  ->  @
+        case "2":
             switch (or)
             {
                 case 0:
+                case 2:
                     return this.Cells2(r, c, r, c + 1);
                 case 1:
-                    return this.Cells2(r, c, r + 1, c);
-                case 2:
-                    return this.Cells2(r, c - 1, r, c);
                 case 3:
-                    return this.Cells2(r - 1, c, r, c);
+                    return this.Cells2(r, c, r + 1, c);
             }
 
-        // rrr - 3 cells line.
+        // 3ln - 3 cells line.
         //
         // Orientation:
         //    0       1       2       3
@@ -287,7 +287,7 @@ Figure.prototype.Cells = function()
         //            #               #
         //   #@#  ->  @  ->  #@#  ->  @
         //            #               #
-        case "rrr":
+        case "3ln":
             switch (or)
             {
                 case 0:
@@ -298,161 +298,138 @@ Figure.prototype.Cells = function()
                     return this.Cells3(r - 1, c, r, c, r + 1, c);
             }
 
-        // rru - 3 cells angle.
+        // 3an - 3 cells angle.
         //
         // Orientation:
-        //    0       1      2       3
+        //    0       1       2       3
         //
-        //    #                      #
-        //   #@  ->  #@  ->  @#  ->  @#
-        //            #      #
-        case "rru":
+        //    #      ##      ##      #
+        //   #@  ->   @  ->  #.  ->  #@
+        case "3an":
             switch (or)
             {
                 case 0:
                     return this.Cells3(r, c, r, c - 1, r + 1, c);
                 case 1:
-                    return this.Cells3(r, c, r, c - 1, r - 1, c);
+                    return this.Cells3(r, c, r + 1, c - 1, r + 1, c);
                 case 2:
-                    return this.Cells3(r, c, r, c + 1, r - 1, c);
+                    return this.Cells3(r, c - 1, r + 1, c - 1, r + 1, c);
                 case 3:
-                    return this.Cells3(r, c, r, c + 1, r + 1, c);
+                    return this.Cells3(r, c, r, c - 1, r + 1, c - 1);
             }
 
-        // rrrr - 4 cells line.
+        // 4ln - 4 cells line.
         //
         // Orientation:
-        //    0        1        2       3
+        //    0        1       2        3
         //
-        //             #
         //             #                #
-        //   #@##  ->  @  ->  ##@#  ->  @
         //             #                #
-        //                              #
-        case "rrrr":
+        //   #@##  ->  @  ->  #@##  ->  @
+        //             #                #
+        case "4ln":
             switch (or)
             {
                 case 0:
+                case 2:
                     return this.Cells4(r, c - 1, r, c, r, c + 1, r, c + 2);
                 case 1:
+                case 3:
                     return this.Cells4(r - 1, c, r, c, r + 1, c, r + 2, c);
-                case 2:
-                    return this.Cells4(r, c - 2, r, c - 1, r, c, r, c + 1);
-                case 3:
-                    return this.Cells4(r - 2, c, r - 1, c, r, c, r + 1, c);
             }
 
-        // rrul - square.
+        // 4sq - square.
         //
         // Orientation:
-        //   0        1       2      3
+        //   0       1       2       3
         //
-        //   ##      ##
-        //   @#  ->  #@  ->  #@  ->  @#
-        //                   ##      ##
-        case "rrul":
-            switch (or)
-            {
-                case 0:
-                    return this.Cells4(r, c, r, c + 1, r + 1, c, r + 1, c + 1);
-                case 1:
-                    return this.Cells4(r, c, r, c - 1, r + 1, c, r + 1, c - 1);
-                case 2:
-                    return this.Cells4(r, c, r, c - 1, r - 1, c, r - 1, c - 1);
-                case 3:
-                    return this.Cells4(r, c, r, c + 1, r - 1, c, r - 1, c + 1);
-            }
+        //   ##      ##      ##      ##
+        //   @#  ->  @#  ->  @#  ->  @#
+        case "4sq":
+            return this.Cells4(r, c, r, c + 1, r + 1, c, r + 1, c + 1);
 
-        // rrru - 4 cells angle.
-        //
-        // Orientation:
-        //     0       1      2        3
-        //
-        //                             #
-        //     #                       #
-        //   ##@  ->  #@  ->  @##  ->  @#
-        //             #      #
-        //             #
-        case "rrru":
-            switch (or)
-            {
-                case 0:
-                    return this.Cells4(r, c, r + 1, c, r, c - 1, r, c - 2);
-                case 1:
-                    return this.Cells4(r, c, r, c - 1, r - 1, c, r - 2, c);
-                case 2:
-                    return this.Cells4(r, c, r, c + 1, r, c + 2, r - 1, c);
-                case 3:
-                    return this.Cells4(r, c, r, c + 1, r + 1, c, r + 2, c);
-            }
-
-
-        // rrrd - 4 cells angle.
-        //
-        // Orientation:
-        //     0      1       2         3
-        //
-        //                              #
-        //                    #         #
-        //   ##@  ->  @#  ->  @##  ->  #@
-        //     #      #
-        //            #
-        case "rrrd":
-            switch (or)
-            {
-                case 0:
-                    return this.Cells4(r, c, r, c - 1, r, c - 2, r - 1, c);
-                case 1:
-                    return this.Cells4(r, c, r, c + 1, r - 1, c, r - 2, c);
-                case 2:
-                    return this.Cells4(r, c, r, c + 1, r, c + 2, r + 1, c);
-                case 3:
-                    return this.Cells4(r, c, r, c - 1, r + 1, c, r + 2, c);
-            }
-
-        // rrur - 4 cells snake.
+        // 4anr - 4 cells right angle.
         //
         // Orientation:
         //    0        1       2       3
         //
-        //    ##      #                #
-        //   #@   ->  #@  ->   @#  ->  @#
-        //             #      ##        #
-        case "rrur":
+        //     #      ##               #
+        //   #@#  ->   @  ->  #@#  ->  @
+        //             #      #        ##
+        case "4anr":
             switch (or)
             {
                 case 0:
-                    return this.Cells4(r, c, r, c - 1, r + 1, c, r + 1, c + 1);
+                    return this.Cells4(r, c, r, c - 1, r, c + 1, r + 1, c + 1);
                 case 1:
-                    return this.Cells4(r, c, r - 1, c, r, c - 1, r + 1, c - 1);
+                    return this.Cells4(r, c, r - 1, c, r + 1, c, r + 1, c - 1);
                 case 2:
-                    return this.Cells4(r, c, r, c + 1, r - 1, c, r - 1, c - 1);
+                    return this.Cells4(r, c, r, c - 1, r - 1, c - 1, r, c + 1);
                 case 3:
-                    return this.Cells4(r, c, r + 1, c, r, c + 1, r - 1, c + 1);
+                    return this.Cells4(r, c, r - 1, c, r - 1, c + 1, r + 1, c);
             }
 
-        // rrdr - 4 cells snake.
+
+        // 4anl - 4 cells left angle.
         //
         // Orientation:
         //    0       1        2        3
         //
-        //             #      ##        #
-        //   #@   ->  @#  ->   @#  ->  #@
-        //    ##      #                #
-        case "rrdr":
+        //            ##      #         #
+        //   #@#  ->  @   ->  #@#  ->   @
+        //     #      #                ##
+        case "4anl":
             switch (or)
             {
                 case 0:
-                    return this.Cells4(r, c, r, c - 1, r - 1, c, r - 1, c + 1);
+                    return this.Cells4(r, c, r, c - 1, r, c + 1, r - 1, c + 1);
                 case 1:
-                    return this.Cells4(r, c, r - 1, c, r, c + 1, r + 1, c + 1);
+                    return this.Cells4(r, c, r - 1, c, r + 1, c, r + 1, c + 1);
                 case 2:
-                    return this.Cells4(r, c, r, c + 1, r + 1, c, r + 1, c - 1);
+                    return this.Cells4(r, c, r, c - 1, r, c + 1, r + 1, c - 1);
                 case 3:
-                    return this.Cells4(r, c, r + 1, c, r, c - 1, r - 1, c - 1);
+                    return this.Cells4(r, c, r - 1, c, r + 1, c, r - 1, c - 1);
             }
 
-        // rr(r,u) - crown.
+        // 4snr - 4 cells right snake.
+        //
+        // Orientation:
+        //    0       1        2       3
+        //
+        //   ##        #      ##        #
+        //    @#  ->  @#  ->   @#  ->  @#
+        //            #                #
+        case "4snr":
+            switch (or)
+            {
+                case 0:
+                case 2:
+                    return this.Cells4(r, c, r, c + 1, r + 1, c - 1, r + 1, c);
+                case 1:
+                case 3:
+                    return this.Cells4(r, c, r - 1, c, r, c + 1, r + 1, c + 1);
+            }
+
+        // 4snl - 4 cells left snake.
+        //
+        // Orientation:
+        //    0       1        2       3
+        //
+        //    ##      #        ##      #
+        //   #@   ->  @#  ->  #@   ->  @#
+        //             #                #
+        case "4snl":
+            switch (or)
+            {
+                case 0:
+                case 2:
+                    return this.Cells4(r, c, r, c - 1, r + 1, c, r + 1, c + 1);
+                case 1:
+                case 3:
+                    return this.Cells4(r, c, r + 1, c, r, c + 1, r - 1, c + 1);
+            }
+
+        // 4cr - 4 cells crown crown.
         //
         // Orientation:
         //    0        1       2       3
@@ -460,7 +437,7 @@ Figure.prototype.Cells = function()
         //    #        #               #
         //   #@#  ->  #@  ->  #@#  ->  @#
         //             #       #       #
-        case "rr(r,u)":
+        case "4cr":
             switch (or)
             {
                 case 0:
@@ -473,7 +450,7 @@ Figure.prototype.Cells = function()
                     return this.Cells4(r, c, r - 1, c, r + 1, c, r, c + 1);
             }
 
-        // star5 - star of 5 cells.
+        // 5star - star of 5 cells.
         //
         // Orientation:
         //    0        1        2        3
@@ -481,7 +458,7 @@ Figure.prototype.Cells = function()
         //    #        #        #        #
         //   #@#  ->  #@#  ->  #@#  ->  #@#
         //    #        #        #        #
-        case "star5":
+        case "5star":
             return this.Cells5(r, c, r - 1, c, r + 1, c, r, c - 1, r, c + 1);
 
         default:
@@ -494,7 +471,7 @@ Figure.prototype.Cells = function()
 // Rotate right.
 Figure.prototype.RotR = function()
 {
-    this.Orient = (this.Orient + 1) % 4;
+    this.Orient = (this.Orient + 3) % 4;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -502,7 +479,7 @@ Figure.prototype.RotR = function()
 // Rotate left.
 Figure.prototype.RotL = function()
 {
-    this.Orient = (this.Orient + 3) % 4;
+    this.Orient = (this.Orient + 1) % 4;
 }
 
 //--------------------------------------------------------------------------------------------------
