@@ -561,7 +561,7 @@ Figure.prototype.Autoposition = function(row, left, right)
     }
     else if (dr > dl + 1)
     {
-        this.Col += Math,floor((dr - dl) / 2);
+        this.Col += Math.floor((dr - dl) / 2);
     }
 }
 

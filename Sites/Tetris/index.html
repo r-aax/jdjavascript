@@ -8,6 +8,14 @@ Copyright Joy Developing.
 <html>
     <head>
         <title>Tetris</title>
+        <style>
+
+body
+{
+    font-family : Verdana
+}
+
+        </style>
         <script src="../../JD/String.js"></script>
         <script src="../../JD/Utils.js"></script>
         <script src="../../JD/Drawer.js"></script>
@@ -26,7 +34,18 @@ var G;
 // Init.
 function Init()
 {
-    G = new Game("canvas", "info", 15, 10);
+    var rows_input = document.getElementById("rows");
+    var rows = rows_input.value;
+    var cols_input = document.getElementById("cols");
+    var cols = cols_input.value;
+    var board_canvas = document.getElementById("canvas");
+
+    // Board canvas size.
+    // 15 x 10 -> 200 x 300.
+    board_canvas.width = 20 * cols;
+    board_canvas.height = 20 * rows;
+
+    G = new Game("canvas", "info", rows, cols);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -160,6 +179,11 @@ function OnSpaceKeyDown()
                 </td>
             </tr>
         </table>
+
+        <br>
+        Field size :
+        <input type="text" id="rows" value="15"></input>
+        <input type="text" id="cols" value="10"></input>
     </body>
 </html>
 
