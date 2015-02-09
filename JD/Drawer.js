@@ -174,6 +174,34 @@ Drawer.prototype.DrawRect = function(x1, y1, x2, y2)
 
 //--------------------------------------------------------------------------------------------------
 
+// Draw centered rectangle in canvas coordinates.
+//
+// Arguments:
+//   x - x coordinate of center,
+//   y - y coordinate of center,
+//   w - width,
+//   h - height.
+Drawer.prototype.DrawRectCenteredI = function(x, y, w, h)
+{
+    this.DrawRectI(x - w / 2, y - h / 2, x + w / 2, y + h / 2);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Draw centered rectangle.
+//
+// Arguments:
+//   x - x coordinate of center,
+//   y - y coordinate of center,
+//   w - width,
+//   h - height.
+Drawer.prototype.DrawRectCentered = function(x, y, w, h)
+{
+    this.DrawRect(x - w / 2, y - h / 2, x + w / 2, y + h / 2);
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Fill rectangle in canvas coordinates.
 //
 // Arguments:
@@ -203,6 +231,34 @@ Drawer.prototype.FillRect = function(x1, y1, x2, y2)
     var ty2 = this.TY(y2);
 
     this.FillRectI(tx1, ty1, tx2, ty2);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Fill centered rectangle in canvas coordinates.
+//
+// Arguments:
+//   x - x coordinate of center,
+//   y - y coordinate of center,
+//   w - width,
+//   h - height.
+Drawer.prototype.FillRectCenteredI = function(x, y, w, h)
+{
+    this.FillRectI(x - w / 2, y - h / 2, x + w / 2, y + h / 2);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Fill centered rectangle.
+//
+// Arguments:
+//   x - x coordinate of center,
+//   y - y coordinate of center,
+//   w - width,
+//   h - height.
+Drawer.prototype.FillRectCentered = function(x, y, w, h)
+{
+    this.FillRect(x - w / 2, y - h / 2, x + w / 2, y + h / 2);
 }
 
 //--------------------------------------------------------------------------------------------------

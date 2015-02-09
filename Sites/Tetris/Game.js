@@ -83,10 +83,14 @@ Game.prototype.Draw = function()
         var cx = this.Board.Cols / 2;
         var cy = this.Board.Rows / 2;
 
-        this.Drawer.SetFillColor("indianred");
+        this.Drawer.SetFillColor("darkgrey");
+        this.Drawer.SetColor("#333333");
+        this.Drawer.FillRectCentered(cx, cy, 7.8, 4.4);
+        this.Drawer.DrawRectCentered(cx, cy, 7.8, 4.4);
+        this.Drawer.SetFillColor("#932510");
         this.Drawer.SetFont("bold 25px lucida console");
         this.Drawer.DrawTextCentered(cx, cy + 0.5, "GAME OVER");
-        this.Drawer.SetFont("bold 18px lucida console");
+        this.Drawer.SetFont("bold 15px lucida console");
         this.Drawer.DrawTextCentered(cx, cy - 0.8, "press space");
         this.Drawer.DrawTextCentered(cx, cy - 1.7, "to continue");
     }
