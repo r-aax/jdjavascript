@@ -38,6 +38,9 @@ function Game(canvas, info, rows, cols)
         "draw",
         500
     );
+
+    // Status - the game is started.
+    this.Status = "start";
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -74,6 +77,19 @@ Game.prototype.Draw = function()
     this.Info.DrawText(6.5, 0.8, ": " + (this.Figures + "").Pad(7));
     this.Info.DrawText(5.3, 0.2, "sco");
     this.Info.DrawText(6.5, 0.2, ": " + (this.Scores + "").Pad(7));
+
+    if (this.IsEnd())
+    {
+        var cx = this.Board.Cols / 2;
+        var cy = this.Board.Rows / 2;
+
+        this.Drawer.SetFillColor("indianred");
+        this.Drawer.SetFont("bold 25px lucida console");
+        this.Drawer.DrawTextCentered(cx, cy + 0.5, "GAME OVER");
+        this.Drawer.SetFont("bold 18px lucida console");
+        this.Drawer.DrawTextCentered(cx, cy - 0.8, "press space");
+        this.Drawer.DrawTextCentered(cx, cy - 1.7, "to continue");
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -85,7 +101,15 @@ Game.prototype.CreateNewFigure = function()
 {
     this.Figure = Figure.RandomFigure(5, 5, this.Drawer);
     this.Figure.Autoposition(this.Board.MaxRow, this.Board.MinCol, this.Board.MaxCol);
-    this.Figures++;
+
+    if (this.IsFigureCorrect())
+    {
+        this.Figures++;
+    }
+    else
+    {
+        this.EndGame();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -233,6 +257,40 @@ Game.prototype.Step = function()
         this.FixFigureAndRemoveFullLines();
         this.CreateNewFigure();
     }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// End game.
+Game.prototype.EndGame = function()
+{
+    JD.Utils.ClearInterval("draw");
+    this.Status = "end";
+    this.Draw();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if game is started.
+//
+// Result:
+//   true - if game is started,
+//   false - if game is not started.
+Game.prototype.IsStart = function()
+{
+    return this.Status == "start";
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if game is ended.
+//
+// Result:
+//   true - if game is ended,
+//   false - if game is not ended.
+Game.prototype.IsEnd = function()
+{
+    return this.Status == "end";
 }
 
 //--------------------------------------------------------------------------------------------------

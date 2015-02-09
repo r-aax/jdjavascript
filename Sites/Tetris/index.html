@@ -23,10 +23,18 @@ var G;
 
 //--------------------------------------------------------------------------------------------------
 
+// Init.
+function Init()
+{
+    G = new Game("canvas", "info", 15, 10);
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Load document.
 function OnLoad()
 {
-    G = new Game("canvas", "info", 15, 10);
+    Init();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -70,8 +78,11 @@ function OnKeyDown(e)
 // Right arrow key down.
 function OnRightArrowKeyDown()
 {
-    G.RightWithCheck();
-    G.Draw();
+    if (G.IsStart())
+    {
+        G.RightWithCheck();
+        G.Draw();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -79,8 +90,11 @@ function OnRightArrowKeyDown()
 // Left arrow key down.
 function OnLeftArrowKeyDown()
 {
-    G.LeftWithCheck();
-    G.Draw();
+    if (G.IsStart())
+    {
+        G.LeftWithCheck();
+        G.Draw();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -88,8 +102,11 @@ function OnLeftArrowKeyDown()
 // Up arrow key down.
 function OnUpArrowKeyDown()
 {
-    G.RotWithCheck();
-    G.Draw();
+    if (G.IsStart())
+    {
+        G.RotWithCheck();
+        G.Draw();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -97,13 +114,16 @@ function OnUpArrowKeyDown()
 // Down arrow key down.
 function OnDownArrowKeyDown()
 {
-    if (!G.DownWithCheck())
+    if (G.IsStart())
     {
-        G.FixFigureAndRemoveFullLines();
-        G.CreateNewFigure();
-    }
+        if (!G.DownWithCheck())
+        {
+            G.FixFigureAndRemoveFullLines();
+            G.CreateNewFigure();
+        }
 
-    G.Draw();
+        G.Draw();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -111,7 +131,14 @@ function OnDownArrowKeyDown()
 // Space key down.
 function OnSpaceKeyDown()
 {
-    alert("space");
+    if (G.IsStart())
+    {
+        alert("space start");
+    }
+    else if (G.IsEnd())
+    {
+        Init();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------

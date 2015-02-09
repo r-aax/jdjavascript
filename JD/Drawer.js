@@ -451,3 +451,37 @@ Drawer.prototype.DrawText = function(x, y, text)
 
 //--------------------------------------------------------------------------------------------------
 
+// Draw centered text in canvas coordinates.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   text - text to draw.
+Drawer.prototype.DrawTextCenteredI = function(x, y, text)
+{
+    var align = this.Context.textAlign;
+
+    this.Context.textAlign = "center";
+    this.DrawTextI(x, y, text);
+    this.Context.textAlign = align;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Draw centered text.
+//
+// Arguments:
+//   x - x coordinate,
+//   y - y coordinate,
+//   text - text to draw.
+Drawer.prototype.DrawTextCentered = function(x, y, text)
+{
+    var align = this.Context.textAlign;
+
+    this.Context.textAlign = "center";
+    this.DrawText(x, y, text);
+    this.Context.textAlign = align;
+}
+
+//--------------------------------------------------------------------------------------------------
+

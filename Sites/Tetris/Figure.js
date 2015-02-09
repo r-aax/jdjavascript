@@ -100,7 +100,7 @@ Figure.DefaultColor = function(type)
     switch (type)
     {
         case "1":
-            return "#8c3e3e";
+            return "#daa520"; // goldenrod
 
         case "2":
             return "#2f6a3c";
