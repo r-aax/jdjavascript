@@ -35,9 +35,9 @@ var G;
 function Init()
 {
     var rows_input = document.getElementById("rows");
-    var rows = rows_input.value;
+    var rows = rows_input.value - 0;
     var cols_input = document.getElementById("cols");
-    var cols = cols_input.value;
+    var cols = cols_input.value - 0;
     var board_canvas = document.getElementById("canvas");
 
     // Board canvas size.
