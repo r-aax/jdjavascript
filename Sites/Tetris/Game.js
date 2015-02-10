@@ -193,12 +193,35 @@ Game.prototype.DownWithCheck = function()
 {
     var save = this.Figure.Clone();
 
-    this.Figure.Down();
-    if (!this.IsFigureCorrect())
+    if (this.Figure.Type == "1gold")
     {
-        this.Figure = save;
+        do
+        {
+            this.Figure.Down();
 
-        return false;
+            if (this.IsFigureCorrect())
+            {
+                return true;
+            }
+            else if (this.Figure.Row < 0)
+            {
+                this.Figure = save;
+
+                return false;
+            }
+        }
+        while (true);
+    }
+    else
+    {
+        this.Figure.Down();
+
+        if (!this.IsFigureCorrect())
+        {
+            this.Figure = save;
+
+            return false;
+        }
     }
 
     return true;

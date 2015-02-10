@@ -34,7 +34,7 @@ function Figure(type, orient, row, col, color, drawer)
 //   drawer - drawer.
 Figure.RandomFigure = function(row, col, drawer)
 {
-    var names = [ "1",
+    var names = [ "1gold",
                   "2",
                   "3ln", "3an",
                   "4ln", "4sq", "4anr", "4anl", "4snr", "4snl", "4cr",
@@ -99,8 +99,8 @@ Figure.DefaultColor = function(type)
 
     switch (type)
     {
-        case "1":
-            return "#daa520"; // goldenrod
+        case "1gold":
+            return "#daa520";
 
         case "2":
             return "#2f6a3c";
@@ -252,13 +252,13 @@ Figure.prototype.Cells = function()
 
     switch (this.Type)
     {
-        // 1 - 1 cell.
+        // 1gold - 1 cell.
         //
         // Orientation:
         //   0      1      2      3
         //
         //   @  ->  @  ->  @  ->  @
-        case "1":
+        case "1gold":
             return this.Cells1(r, c);
 
         // 2 - 2 cells line.
