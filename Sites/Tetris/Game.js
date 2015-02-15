@@ -15,8 +15,6 @@
 //   cols - columns count.
 function Game(canvas, info, rows, cols)
 {
-    var th = this;
-
     this.Drawer = new Drawer(canvas, cols, rows, false, true);
     this.Info = new Drawer(info, 10, 2, false, true);
     this.Board = new Board(rows, cols, this.Drawer);
@@ -28,6 +26,21 @@ function Game(canvas, info, rows, cols)
 
     this.CreateNewFigure();
     this.Draw();
+    this.SetStepInterval();
+
+    // Status - the game is started.
+    this.Status = "start";
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set step interval.
+Game.prototype.SetStepInterval = function()
+{
+    var th = this;
+    var delay = this.SpeedDelay(this.Speed);
+
+    JD.Utils.ClearInterval("draw");
     JD.Utils.SetInterval
     (
         function()
@@ -36,11 +49,8 @@ function Game(canvas, info, rows, cols)
             th.Draw();
         },
         "draw",
-        500
+        delay
     );
-
-    // Status - the game is started.
-    this.Status = "start";
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -269,7 +279,7 @@ Game.prototype.FixFigureAndRemoveFullLines = function()
 {
     this.FixFigure();
     var count = this.Board.RemoveFullLines();
-    this.Scores += (count * count);
+    this.AddScores(count * count);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -318,6 +328,96 @@ Game.prototype.IsStart = function()
 Game.prototype.IsEnd = function()
 {
     return this.Status == "end";
+}
+
+//--------------------------------------------------------------------------------------------------
+// Scores and speed.
+//--------------------------------------------------------------------------------------------------
+
+// Add scores.
+//
+// Arguments:
+//   s - scores to add.
+Game.prototype.AddScores = function(s)
+{
+    this.Scores += s;
+
+    // Logic of speed increase.
+    this.SpeedUp();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Delay.
+//
+// Arguments:
+//   sp - speed.
+//
+// Result:
+//   Delay value.
+Game.prototype.SpeedDelay = function(sp)
+{
+    switch (sp)
+    {
+        case 1:
+            return 1000;
+
+        case 2:
+            return 800;
+
+        case 3:
+            return 600;
+
+        case 4:
+            return 500;
+
+        case 5:
+            return 400;
+
+        case 6:
+            return 300;
+
+        case 7:
+            return 200;
+
+        case 8:
+            return 100;
+
+        case 9:
+            return 75;
+
+        case 10:
+            return 50;
+
+        default:
+            return 50;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set speed up.
+Game.prototype.SpeedUp = function()
+{
+    var sp = this.Speed;
+
+    if (sp < 10)
+    {
+        sp++;
+        this.SetSpeed(sp);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set speed.
+//
+// Arguments:
+//   sp - speed.
+Game.prototype.SetSpeed = function(sp)
+{
+    this.Speed = sp;
+    this.SetStepInterval();
 }
 
 //--------------------------------------------------------------------------------------------------
