@@ -274,12 +274,25 @@ Game.prototype.FixFigure = function()
 
 //--------------------------------------------------------------------------------------------------
 
-// Fix figure and remove lines.
-Game.prototype.FixFigureAndRemoveFullLines = function()
+// Fix figure and remove cells.
+// First we try to delete cells burned with 1fire brick.
+// Then we try to delete full line cells.
+Game.prototype.FixFigureAndRemoveCells = function()
 {
+    var is_fire = (this.Figure.Type == "1fire");
+    var row = this.Figure.Row;
+    var col = this.Figure.Col;
+
     this.FixFigure();
-    var count = this.Board.RemoveFullLines();
-    this.AddScores(count * count);
+
+    if (is_fire)
+    {
+        var burned_count = this.Board.BurnCells(row, col);
+        this.AddScores(this.ScoresForBurnedCells(burned_count));
+    }
+
+    var lines_count = this.Board.RemoveFullLines();
+    this.AddScores(this.ScoresForLines(lines_count));
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -291,7 +304,7 @@ Game.prototype.Step = function()
 
     if (!this.DownWithCheck())
     {
-        this.FixFigureAndRemoveFullLines();
+        this.FixFigureAndRemoveCells();
         this.CreateNewFigure();
     }
 }
@@ -334,6 +347,34 @@ Game.prototype.IsEnd = function()
 // Scores and speed.
 //--------------------------------------------------------------------------------------------------
 
+// Scores count for lines delete.
+//
+// Arguments:
+//   count - lines count.
+//
+// Result:
+//   Scores count.
+Game.prototype.ScoresForLines = function(count)
+{
+    return this.Board.Cols * (count * count);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Scores count for burned cells.
+//
+// Arguments:
+//   count - count of burned cells.
+//
+// Result:
+//   Scores count.
+Game.prototype.ScoresForBurnedCells = function(count)
+{
+    return count * count * count;
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Add scores.
 //
 // Arguments:
@@ -343,7 +384,8 @@ Game.prototype.AddScores = function(s)
     this.Scores += s;
 
     // Logic of speed increase.
-    this.SpeedUp();
+    // Fix it.
+    // this.SpeedUp();
 }
 
 //--------------------------------------------------------------------------------------------------

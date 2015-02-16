@@ -144,3 +144,77 @@ Board.prototype.RemoveFullLines = function()
 
 //--------------------------------------------------------------------------------------------------
 
+// Burn cells of given color.
+//
+// Arguments:
+//   row - row of start cell,
+//   col - col of start cell,
+//   color - color to burn.
+//
+// Result:
+//   Count of burned cells.
+Board.prototype.BurnCellsOfGivenColor = function(row, col, color)
+{
+    var burned_count = 0;
+
+    if (this.M[row][col] != color)
+    {
+        return 0;
+    }
+
+    this.M[row][col] = undefined;
+    burned_count++;
+
+    if (row > 0)
+    {
+        burned_count += this.BurnCellsOfGivenColor(row - 1, col, color);
+    }
+
+    if (row < this.Rows - 1)
+    {
+        burned_count += this.BurnCellsOfGivenColor(row + 1, col, color);
+    }
+
+    if (col > 0)
+    {
+        burned_count += this.BurnCellsOfGivenColor(row, col - 1, color);
+    }
+
+    if (col < this.Cols - 1)
+    {
+        burned_count += this.BurnCellsOfGivenColor(row, col + 1, color);
+    }
+
+    return burned_count;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Burn cells of the same color.
+// The burn starts with (row - 1, col) cell and propagates on all neightboars.
+// Cell (row, col) burns too.
+//
+// Arguments:
+//   row - row of fire brick,
+//   col - col of fire brick.
+//
+// Result:
+//   Count of burned cells.
+Board.prototype.BurnCells = function(row, col)
+{
+    var burned_count = 0;
+
+    // If row is greater than 0 we have to burn the same color cells.
+    if (row > 0)
+    {
+        burned_count = this.BurnCellsOfGivenColor(row - 1, col, this.M[row - 1][col]);
+    }
+
+    // Burn fire brick.
+    this.M[row][col] = undefined;
+
+    return burned_count + 1;
+}
+
+//--------------------------------------------------------------------------------------------------
+
