@@ -347,7 +347,29 @@ Game.prototype.IsEnd = function()
 // Figures.
 //--------------------------------------------------------------------------------------------------
 
-// Set default probabilities of figures.
+// Set default figures.
+Game.prototype.SetDefaultFigures = function()
+{
+    if (this.FiguresProbs == undefined)
+    {
+        this.FiguresProbs =
+            [
+                { E : "1gold", P : 1.0 },
+                { E : "1fire", P : 1.0 },
+                { E : "2",     P : 1.0 },
+                { E : "3ln",   P : 1.0 },
+                { E : "3an",   P : 1.0 },
+                { E : "4ln",   P : 1.0 },
+                { E : "4sq",   P : 1.0 },
+                { E : "4anr",  P : 1.0 },
+                { E : "4anl",  P : 1.0 },
+                { E : "4snr",  P : 1.0 },
+                { E : "4snl",  P : 1.0 },
+                { E : "4cr",   P : 1.0 },
+                { E : "5star", P : 1.0 }
+            ];
+    }
+}
 
 //--------------------------------------------------------------------------------------------------
 
@@ -359,12 +381,9 @@ Game.prototype.IsEnd = function()
 //   drawer - drawer.
 Game.prototype.RandomFigure = function(row, col, drawer)
 {
-    var names = [ "1gold", "1fire",
-                  "2",
-                  "3ln", "3an",
-                  "4ln", "4sq", "4anr", "4anl", "4snr", "4snl", "4cr",
-                  "5star" ];
-    var type = JD.Utils.RandomArrayElement(names);
+    this.SetDefaultFigures();
+
+    var type = JD.Utils.RandomArrayWeightedElement(this.FiguresProbs);
 
     return new Figure(type, JD.Utils.RandomN(0, 3),
                       row, col, Figure.DefaultColor(type), drawer);

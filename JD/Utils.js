@@ -31,6 +31,23 @@ JD.Utils.Check = function(cond, str)
 // Pseudo random numbers.
 //--------------------------------------------------------------------------------------------------
 
+// Get random float number from x to y.
+//
+// Arguments:
+//   x - low bound of random number,
+//   y - high bound of random number.
+//
+// Result:
+//   Random number.
+JD.Utils.RandomF = function(x, y)
+{
+    this.Check(x <= y, "JD.Utils.RandomF : x must not be greater than y");
+
+    return x + Math.random() * (y - x);
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Get random integer number from a to b.
 //
 // Arguments:
@@ -70,6 +87,46 @@ JD.Utils.RandomBool = function()
 JD.Utils.RandomArrayElement = function(ar)
 {
     return ar[this.RandomN(0, ar.length - 1)];
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Get random element of array with probability.
+//
+// Arguments:
+//   ar - array of { E : element, P : weight }.
+//
+// Result:
+//   Random weighted element.
+JD.Utils.RandomArrayWeightedElement = function(ar)
+{
+    var ws = 0.0;
+    var i;
+
+    // Weights sum.
+    for (i in ar)
+    {
+        ws += ar[i].P;
+    }
+
+    var r = this.RandomF(0.0, ws);
+
+    // Find element.
+    ws = 0.0;
+    i = 0;
+    for (; i < ar.length; i++)
+    {
+        var next_ws = ws + ar[i].P;
+
+        if ((ws <= r) && (next_ws >= r))
+        {
+            return ar[i].E;
+        }
+
+        ws = next_ws;
+    }
+
+    return ar[i].E;
 }
 
 //--------------------------------------------------------------------------------------------------
