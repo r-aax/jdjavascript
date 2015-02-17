@@ -19,6 +19,7 @@ body
         <script src="../../JD/String.js"></script>
         <script src="../../JD/Utils.js"></script>
         <script src="../../JD/Drawer.js"></script>
+        <script src="../../JD/Content.js"></script>
         <script src="Board.js"></script>
         <script src="Figure.js"></script>
         <script src="Game.js"></script>
@@ -45,7 +46,7 @@ function Init()
     board_canvas.width = 20 * cols;
     board_canvas.height = 20 * rows;
 
-    G = new Game("canvas", "info", rows, cols);
+    G = new Game(document, "canvas", "info", rows, cols);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -170,20 +171,51 @@ function OnSpaceKeyDown()
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td>
-                    <canvas width="200" height="50" id="info"/>
+                    <canvas width="200" height="50" id="info"></canvas>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <canvas width="200" height="300" id="canvas"/>
+                    <canvas width="200" height="300" id="canvas"></canvas>
                 </td>
             </tr>
         </table>
 
         <br>
         Field size :
-        <input type="text" id="rows" value="15"></input>
-        <input type="text" id="cols" value="10"></input>
+        <input type="text" id="rows" value="15">
+        <input type="text" id="cols" value="10">
+
+        <br><br>
+        <table border="1">
+            <tr><th>cells</th><th>description</th><th>weight</th></tr>
+            <tr><td>1</td><td>gold brick (falls through other bricks)</td>
+                <td><input type="text" id="f1gold" value="1.0"></td></tr>
+            <tr><td>1</td><td>fire brick (destroys other bricks)</td>
+                <td><input type="text" id="f1fire" value="1.0"></td></tr>
+            <tr><td>2</td><td>line</td>
+                <td><input type="text" id="f2" value="1.0"></td></tr>
+            <tr><td>3</td><td>line</td>
+                <td><input type="text" id="f3ln" value="1.0"></td></tr>
+            <tr><td>3</td><td>angle</td>
+                <td><input type="text" id="f3an" value="1.0"></td></tr>
+            <tr><td>4</td><td>line</td>
+                <td><input type="text" id="f4ln" value="1.0"></td></tr>
+            <tr><td>4</td><td>square</td>
+                <td><input type="text" id="f4sq" value="1.0"></td></tr>
+            <tr><td>4</td><td>angle right</td>
+                <td><input type="text" id="f4anr" value="1.0"></td></tr>
+            <tr><td>4</td><td>angle left</td>
+                <td><input type="text" id="f4anl" value="1.0"></td></tr>
+            <tr><td>4</td><td>snake right</td>
+                <td><input type="text" id="f4snr" value="1.0"></td></tr>
+            <tr><td>4</td><td>snake left</td>
+                <td><input type="text" id="f4snl" value="1.0"></td></tr>
+            <tr><td>4</td><td>crown</td>
+                <td><input type="text" id="f4cr" value="1.0"></td></tr>
+            <tr><td>5</td><td>star</td>
+                <td><input type="text" id="f5star" value="1.0"></td></tr>
+        </table>
     </body>
 </html>
 

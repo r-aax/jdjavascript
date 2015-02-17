@@ -9,12 +9,14 @@
 // Create game.
 //
 // Arguments:
+//   doc - document,
 //   canvas - canvas of the game,
 //   info - information canvas,
 //   rows - rows count,
 //   cols - columns count.
-function Game(canvas, info, rows, cols)
+function Game(doc, canvas, info, rows, cols)
 {
+    this.Document = doc;
     this.Drawer = new Drawer(canvas, cols, rows, false, true);
     this.Info = new Drawer(info, 10, 2, false, true);
     this.Board = new Board(rows, cols, this.Drawer);
@@ -354,19 +356,19 @@ Game.prototype.SetDefaultFigures = function()
     {
         this.FiguresProbs =
             [
-                { E : "1gold", P : 1.0 },
-                { E : "1fire", P : 1.0 },
-                { E : "2",     P : 1.0 },
-                { E : "3ln",   P : 1.0 },
-                { E : "3an",   P : 1.0 },
-                { E : "4ln",   P : 1.0 },
-                { E : "4sq",   P : 1.0 },
-                { E : "4anr",  P : 1.0 },
-                { E : "4anl",  P : 1.0 },
-                { E : "4snr",  P : 1.0 },
-                { E : "4snl",  P : 1.0 },
-                { E : "4cr",   P : 1.0 },
-                { E : "5star", P : 1.0 }
+                { E : "1gold", P : JD.Content.ElementNValue(this.Document, "f1gold") },
+                { E : "1fire", P : JD.Content.ElementNValue(this.Document, "f1fire") },
+                { E : "2",     P : JD.Content.ElementNValue(this.Document, "f2") },
+                { E : "3ln",   P : JD.Content.ElementNValue(this.Document, "f3ln") },
+                { E : "3an",   P : JD.Content.ElementNValue(this.Document, "f3an") },
+                { E : "4ln",   P : JD.Content.ElementNValue(this.Document, "f4ln") },
+                { E : "4sq",   P : JD.Content.ElementNValue(this.Document, "f4sq") },
+                { E : "4anr",  P : JD.Content.ElementNValue(this.Document, "f4anr") },
+                { E : "4anl",  P : JD.Content.ElementNValue(this.Document, "f4anl") },
+                { E : "4snr",  P : JD.Content.ElementNValue(this.Document, "f4snr") },
+                { E : "4snl",  P : JD.Content.ElementNValue(this.Document, "f4snl") },
+                { E : "4cr",   P : JD.Content.ElementNValue(this.Document, "f4cr") },
+                { E : "5star", P : JD.Content.ElementNValue(this.Document, "f5star") }
             ];
     }
 }

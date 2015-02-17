@@ -3,6 +3,7 @@
 // Copyright Joy Developing.
 
 // Initialize.
+var JD;
 if (!JD) JD = {};
 JD.Content = {};
 
@@ -108,4 +109,21 @@ JD.Content.Quote = function(text)
 {
     return "&laquo;" + text + "&raquo;";
 }
+
+//--------------------------------------------------------------------------------------------------
+
+// Get number value of element.
+//
+// Arguments:
+//   doc - document,
+//   id - element identifier.
+//
+// Result:
+//   Value.
+JD.Content.ElementNValue = function(doc, id)
+{
+    return doc.getElementById(id).value - 0;
+}
+
+//--------------------------------------------------------------------------------------------------
 
