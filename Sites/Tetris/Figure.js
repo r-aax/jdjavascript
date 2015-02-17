@@ -26,27 +26,6 @@ function Figure(type, orient, row, col, color, drawer)
 
 //--------------------------------------------------------------------------------------------------
 
-// Get random figure.
-//
-// Arguments:
-//   row - base cell row,
-//   col - base cell column,
-//   drawer - drawer.
-Figure.RandomFigure = function(row, col, drawer)
-{
-    var names = [ "1gold", "1fire",
-                  "2",
-                  "3ln", "3an",
-                  "4ln", "4sq", "4anr", "4anl", "4snr", "4snl", "4cr",
-                  "5star" ];
-    var type = JD.Utils.RandomArrayElement(names);
-
-    return new Figure(type, JD.Utils.RandomN(0, 3),
-                      row, col, Figure.DefaultColor(type), drawer);
-}
-
-//--------------------------------------------------------------------------------------------------
-
 // Get clone.
 //
 // Result:

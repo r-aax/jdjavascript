@@ -113,7 +113,7 @@ Game.prototype.Draw = function()
 // Position new figure.
 Game.prototype.CreateNewFigure = function()
 {
-    this.Figure = Figure.RandomFigure(5, 5, this.Drawer);
+    this.Figure = this.RandomFigure(5, 5, this.Drawer);
     this.Figure.Autoposition(this.Board.MaxRow, this.Board.MinCol, this.Board.MaxCol);
 
     if (this.IsFigureCorrect())
@@ -341,6 +341,33 @@ Game.prototype.IsStart = function()
 Game.prototype.IsEnd = function()
 {
     return this.Status == "end";
+}
+
+//--------------------------------------------------------------------------------------------------
+// Figures.
+//--------------------------------------------------------------------------------------------------
+
+// Set default probabilities of figures.
+
+//--------------------------------------------------------------------------------------------------
+
+// Get random figure.
+//
+// Arguments:
+//   row - base cell row,
+//   col - base cell column,
+//   drawer - drawer.
+Game.prototype.RandomFigure = function(row, col, drawer)
+{
+    var names = [ "1gold", "1fire",
+                  "2",
+                  "3ln", "3an",
+                  "4ln", "4sq", "4anr", "4anl", "4snr", "4snl", "4cr",
+                  "5star" ];
+    var type = JD.Utils.RandomArrayElement(names);
+
+    return new Figure(type, JD.Utils.RandomN(0, 3),
+                      row, col, Figure.DefaultColor(type), drawer);
 }
 
 //--------------------------------------------------------------------------------------------------
