@@ -173,7 +173,7 @@ function WriteFiguresTableTR(cells, descr, id, default_value)
 {
     document.write("<tr><td>" + cells + "</td><td>" + descr
         + "</td><td><input type=\"text\" id=\"" + id
-        + "\" value=\"" + default_value + "\"></td></tr>";
+        + "\" value=\"" + default_value + "\"></td></tr>");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -204,23 +204,29 @@ function WriteFiguresTableTR(cells, descr, id, default_value)
         <br><br>
         <table border="1">
             <tr><th>cells</th><th>description</th><th>weight</th></tr>
-            
-    <script>
-        WriteFiguresTableTR(1, "gold brick (falls through other bricks)", "f1gold", 1.0);
-        WriteFiguresTableTR(1, "fire brick (destroys other bricks)", "f1fire", 1.0);
-        WriteFiguresTableTR(2, "line", "f2", 1.0);
-        WriteFiguresTableTR(3, "line", "f3ln", 1.0);
-        WriteFiguresTableTR(3, "angle", "f3an", 1.0);
-        WriteFiguresTableTR(4, "line", "f4ln", 1.0);
-        WriteFiguresTableTR(4, "square", "f4sq", 1.0);
-        WriteFiguresTableTR(4, "angle right", "f4anr", 1.0);
-        WriteFiguresTableTR(4, "angle left", "f4anl", 1.0);
-        WriteFiguresTableTR(4, "snake right", "f4snr", 1.0);
-        WriteFiguresTableTR(4, "snake left", "f4snl", 1.0);
-        WriteFiguresTableTR(4, "crown", "f4cr", 1.0);
-        WriteFiguresTableTR(5, "star", "f5star", 1.0);
-    <script>
-    
+
+            <script>
+
+<!--
+
+WriteFiguresTableTR(1, "gold brick (falls through other bricks)", "f1gold", 1.0);
+WriteFiguresTableTR(1, "fire brick (destroys other bricks)", "f1fire", 1.0);
+WriteFiguresTableTR(2, "line", "f2", 1.0);
+WriteFiguresTableTR(3, "line", "f3ln", 1.0);
+WriteFiguresTableTR(3, "angle", "f3an", 1.0);
+WriteFiguresTableTR(4, "line", "f4ln", 1.0);
+WriteFiguresTableTR(4, "square", "f4sq", 1.0);
+WriteFiguresTableTR(4, "angle right", "f4anr", 1.0);
+WriteFiguresTableTR(4, "angle left", "f4anl", 1.0);
+WriteFiguresTableTR(4, "snake right", "f4snr", 1.0);
+WriteFiguresTableTR(4, "snake left", "f4snl", 1.0);
+WriteFiguresTableTR(4, "crown", "f4cr", 1.0);
+WriteFiguresTableTR(5, "star", "f5star", 1.0);
+
+-->
+
+            </script>
+
         </table>
     </body>
 </html>
