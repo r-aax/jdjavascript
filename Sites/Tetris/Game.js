@@ -25,6 +25,7 @@ function Game(doc, canvas, info, rows, cols)
     this.Speed = 1;
     this.Figures = 0;
     this.Scores = 0;
+    this.LastSpeedChangeScores = this.Scores;
 
     this.CreateNewFigure();
     this.Draw();
@@ -84,7 +85,11 @@ Game.prototype.Draw = function()
     this.Info.DrawText(1.2, 0.2, "@gmail.com");
     this.Info.SetFillColor("#444444");
     this.Info.DrawText(5.3, 1.4, "spd");
-    this.Info.DrawText(6.5, 1.4, ": " + (this.Speed + "").Pad(7));
+    var left_sc = (this.Speed < 10)
+                  ? (this.GetSpeedUpScores() - (this.Scores - this.LastSpeedChangeScores))
+                  : "inf";
+    var sp_str = (this.Speed + "/" + (left_sc)).Pad(7);
+    this.Info.DrawText(6.5, 1.4, ": " + sp_str);
     this.Info.DrawText(5.3, 0.8, "fig");
     this.Info.DrawText(6.5, 0.8, ": " + (this.Figures + "").Pad(7));
     this.Info.DrawText(5.3, 0.2, "sco");
@@ -423,6 +428,22 @@ Game.prototype.ScoresForBurnedCells = function(count)
 
 //--------------------------------------------------------------------------------------------------
 
+// Get speed up scores parameter.
+//
+// Result:
+//   Speed up scores parameter.
+Game.prototype.GetSpeedUpScores = function()
+{
+    if (this.SpeedUpScores == undefined)
+    {
+        this.SpeedUpScores = JD.Content.ElementNValue(this.Document, "speed_up_scores");
+    }
+
+    return this.SpeedUpScores;
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Add scores.
 //
 // Arguments:
@@ -431,9 +452,10 @@ Game.prototype.AddScores = function(s)
 {
     this.Scores += s;
 
-    // Logic of speed increase.
-    // Fix it.
-    // this.SpeedUp();
+    if (this.Scores - this.LastSpeedChangeScores >= this.GetSpeedUpScores())
+    {
+        this.SpeedUp();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -495,6 +517,7 @@ Game.prototype.SpeedUp = function()
     {
         sp++;
         this.SetSpeed(sp);
+        this.LastSpeedChangeScores = this.Scores;
     }
 }
 

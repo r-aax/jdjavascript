@@ -197,11 +197,20 @@ function WriteFiguresTableTR(cells, descr, id, default_value)
         </table>
 
         <br>
-        Field size :
-        <input type="text" id="rows" value="15">
-        <input type="text" id="cols" value="10">
+        <table>
+        <tr>
+            <td>Field size :</td>
+            <td><input type="text" id="rows" value="15"></td>
+            <td><input type="text" id="cols" value="10"></td>
+        </tr>
+        <tr>
+            <td>Speed up scores parameter:</td>
+            <td>&nbsp;</td>
+            <td><input type="text" id="speed_up_scores" value="1000"></td>
+        </tr>
+        </table>
 
-        <br><br>
+        <br>
         <table border="1">
             <tr><th>cells</th><th>description</th><th>weight</th></tr>
 
