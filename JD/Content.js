@@ -2,24 +2,41 @@
 //
 // Copyright Joy Developing.
 
+//--------------------------------------------------------------------------------------------------
+
 // Initialize.
 var JD;
 if (!JD) JD = {};
 JD.Content = {};
 
+//--------------------------------------------------------------------------------------------------
+
 // Say message.
+//
+// Arguments:
+//   str - string to say.
 JD.Content.Say = function(str)
 {
     alert(str);
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write text to document.
+//
+// Arguments:
+//   text - write text to document.
 JD.Content.Write = function(text)
 {
     document.write(text);
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Class name string.
+//
+// Arguments:
+//   c - class name.
 JD.Content.ClassStr = function(c)
 {
     if (!c)
@@ -32,7 +49,13 @@ JD.Content.ClassStr = function(c)
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write IMG to document.
+//
+// Arguments:
+//   url - url string,
+//   c - class name.
 JD.Content.IMG = function(url, c)
 {
     with (JD.Content)
@@ -42,7 +65,12 @@ JD.Content.IMG = function(url, c)
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write HR to document.
+//
+// Arguments:
+//   c - class name.
 JD.Content.HR = function(c)
 {
     with (JD.Content)
@@ -52,7 +80,13 @@ JD.Content.HR = function(c)
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write IFRAME to document.
+//
+// Arguments:
+//   url - url string,
+//   c - class name.
 JD.Content.IFRAME = function(url, c)
 {
     with (JD.Content)
@@ -62,7 +96,18 @@ JD.Content.IFRAME = function(url, c)
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write DIV to document.
+//
+// Arguments:
+//   pos - position type,
+//   x - x coordinate,
+//   y - y coordinate,
+//   width - width,
+//   height - height,
+//   text - text of div,
+//   c - class name.
 JD.Content.DIV = function(pos, x, y, width, height, text, c)
 {
     with (JD.Content)
@@ -78,13 +123,21 @@ JD.Content.DIV = function(pos, x, y, width, height, text, c)
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write BR to document.
 JD.Content.BR = function()
 {
     JD.Content.Write("<br>");
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write P to document.
+//
+// Arguments:
+//   text - text,
+//   c - class name.
 JD.Content.P = function(text, c)
 {
     with (JD.Content)
@@ -94,7 +147,12 @@ JD.Content.P = function(text, c)
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Write A to document.
+//
+// Arguments:
+//   name - anchor name.
 JD.Content.A = function(name)
 {
     with (JD.Content)
@@ -104,7 +162,12 @@ JD.Content.A = function(name)
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+
 // Quoted text.
+//
+// Arguments:
+//   text - text.
 JD.Content.Quote = function(text)
 {
     return "&laquo;" + text + "&raquo;";
