@@ -77,6 +77,27 @@ Cell.prototype.Draw = function()
 }
 
 //--------------------------------------------------------------------------------------------------
+
+// Draw human.
+Cell.prototype.DrawHuman = function()
+{
+    var row_c = this.GetRow() + 0.5 + 0.05;
+    var col_c = this.GetCol() + 0.5;
+
+    with (this.GetDrawer())
+    {
+        SetColor("#444444");
+        DrawLine(col_c - 0.3, row_c, col_c + 0.3, row_c);
+        SetFillColor("steelblue");
+        FillRect(col_c - 0.08, row_c - 0.3, col_c + 0.08, row_c + 0.2);
+        SetFillColor("brown");
+        FillCircle(col_c, row_c + 0.2, 0.14);
+        DrawLine(col_c - 0.08, row_c - 0.3, col_c - 0.08, row_c - 0.45);
+        DrawLine(col_c + 0.08, row_c - 0.3, col_c + 0.08, row_c - 0.45);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
 // Walls properties.
 //--------------------------------------------------------------------------------------------------
 

@@ -42,8 +42,9 @@ function Init()
     {
         AddRightWall(3, 3);
         AddUpWall(5, 5);
-        Draw();
     }
+
+    G.Draw();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -95,7 +96,8 @@ function OnKeyDown(e)
 // Right arrow key down.
 function OnRightArrowKeyDown()
 {
-    alert("right button");
+    G.GoRight();
+    G.Draw();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -103,7 +105,8 @@ function OnRightArrowKeyDown()
 // Left arrow key down.
 function OnLeftArrowKeyDown()
 {
-    alert("left button");
+    G.GoLeft();
+    G.Draw();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -111,7 +114,8 @@ function OnLeftArrowKeyDown()
 // Up arrow key down.
 function OnUpArrowKeyDown()
 {
-    alert("up button");
+    G.GoUp();
+    G.Draw();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -119,7 +123,8 @@ function OnUpArrowKeyDown()
 // Down arrow key down.
 function OnDownArrowKeyDown()
 {
-    alert("down button");
+    G.GoDown();
+    G.Draw();
 }
 
 //--------------------------------------------------------------------------------------------------
