@@ -1,0 +1,147 @@
+<!--
+Labirinth game.
+
+Copyright Joy Developing.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Labirinth</title>
+        <style>
+
+body
+{
+    font-family : Verdana
+}
+
+        </style>
+        <script src="../../JD/String.js"></script>
+        <script src="../../JD/Utils.js"></script>
+        <script src="../../JD/Drawer.js"></script>
+        <script src="../../JD/Content.js"></script>
+        <script src="Cell.js"></script>
+        <script src="Board.js"></script>
+        <script src="Game.js"></script>
+        <script>
+
+<!--
+
+// Game.
+var G;
+
+//--------------------------------------------------------------------------------------------------
+
+// Init.
+function Init()
+{
+    G = new Game(document);
+    G.GetBoard().Draw();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Load document.
+function OnLoad()
+{
+    Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Key down.
+//
+// Arguments:
+//   e - event attributes.
+function OnKeyDown(e)
+{
+    switch (e.keyCode)
+    {
+        case 39:
+            OnRightArrowKeyDown();
+            break;
+
+        case 37:
+            OnLeftArrowKeyDown();
+            break;
+
+        case 38:
+            OnUpArrowKeyDown();
+            break;
+
+        case 40:
+            OnDownArrowKeyDown();
+            break;
+
+        case 32:
+            OnSpaceKeyDown();
+            break;
+
+        // No reaction on other keys down events.
+        default:
+            break;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Right arrow key down.
+function OnRightArrowKeyDown()
+{
+    alert("right button");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Left arrow key down.
+function OnLeftArrowKeyDown()
+{
+    alert("left button");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Up arrow key down.
+function OnUpArrowKeyDown()
+{
+    alert("up button");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Down arrow key down.
+function OnDownArrowKeyDown()
+{
+    alert("down button");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Space key down.
+function OnSpaceKeyDown()
+{
+    alert("space button");
+}
+
+//--------------------------------------------------------------------------------------------------
+
+-->
+
+        </script>
+    </head>
+    <body onload="OnLoad()" onkeydown="OnKeyDown(event)">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <canvas width="300" height="50" id="info"></canvas>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <canvas width="300" height="300" id="canvas"></canvas>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+
