@@ -51,4 +51,124 @@ Board.prototype.Draw = function()
 }
 
 //--------------------------------------------------------------------------------------------------
+// Walls.
+//--------------------------------------------------------------------------------------------------
+
+// Set right wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number,
+//   val - value of wall attribute.
+Board.prototype.SetRightWall = function(row, col, val)
+{
+    if (JD.Maths.IsInBounds(row, this.GetMinRow(), this.GetMaxRow())
+        && JD.Maths.IsInBounds(col, this.GetMinCol(), this.GetMaxCol()))
+    {
+        this.GetCell(row, col).SetRightWall(val);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set left wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number,
+//   val - value of wall attribute.
+Board.prototype.SetLeftWall = function(row, col, val)
+{
+    if (JD.Maths.IsInBounds(row, this.GetMinRow(), this.GetMaxRow())
+        && JD.Maths.IsInBounds(col, this.GetMinCol(), this.GetMaxCol()))
+    {
+        this.GetCell(row, col).SetLeftWall(val);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set up wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number,
+//   val - value of wall attribute.
+Board.prototype.SetUpWall = function(row, col, val)
+{
+    if (JD.Maths.IsInBounds(row, this.GetMinRow(), this.GetMaxRow())
+        && JD.Maths.IsInBounds(col, this.GetMinCol(), this.GetMaxCol()))
+    {
+        this.GetCell(row, col).SetUpWall(val);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set down wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number,
+//   val - value of wall attribute.
+Board.prototype.SetDownWall = function(row, col, val)
+{
+    if (JD.Maths.IsInBounds(row, this.GetMinRow(), this.GetMaxRow())
+        && JD.Maths.IsInBounds(col, this.GetMinCol(), this.GetMaxCol()))
+    {
+        this.GetCell(row, col).SetDownWall(val);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Add right wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number.
+Board.prototype.AddRightWall = function(row, col)
+{
+    this.SetRightWall(row, col, true);
+    this.SetLeftWall(row, col + 1, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Add left wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number.
+Board.prototype.AddLeftWall = function(row, col)
+{
+    this.AddRightWall(row, col + 1);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Add up wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number.
+Board.prototype.AddUpWall = function(row, col)
+{
+    this.SetUpWall(row, col, true);
+    this.SetDownWall(row + 1, col, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Add down wall.
+//
+// Arguments:
+//   row - cell row number,
+//   col - cell col number.
+Board.prototype.AddDownWall = function(row, col)
+{
+    this.AddUpWall(row + 1, col);
+}
+
+//--------------------------------------------------------------------------------------------------
 

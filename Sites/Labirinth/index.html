@@ -18,6 +18,7 @@ body
         </style>
         <script src="../../JD/String.js"></script>
         <script src="../../JD/Utils.js"></script>
+        <script src="../../JD/Maths.js"></script>
         <script src="../../JD/Drawer.js"></script>
         <script src="../../JD/Content.js"></script>
         <script src="Cell.js"></script>
@@ -36,7 +37,13 @@ var G;
 function Init()
 {
     G = new Game(document);
-    G.GetBoard().Draw();
+
+    with (G.GetBoard())
+    {
+        AddRightWall(3, 3);
+        AddUpWall(5, 5);
+        Draw();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------

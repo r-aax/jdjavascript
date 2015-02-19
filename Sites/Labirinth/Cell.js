@@ -16,6 +16,7 @@ function Cell(row, col, drawer)
     this.GetCol = function() { return col; }
     this.GetDrawer = function() { return drawer; }
     this.GetBGColor = function() { return "lightgray"; }
+    this.GetWallColor = function() { return "indianred"; }
 
     // No walls.
     this.RightWall = false;
@@ -34,14 +35,44 @@ Cell.prototype.Draw = function()
     // Margin.
     var d = 0.02;
 
+    // Wall width.
+    var w = 0.08;
+
     var row = this.GetRow();
     var col = this.GetCol();
     var bg = this.GetBGColor();
+    var wall_color = this.GetWallColor();
+    var is_right = this.IsRightWall();
+    var is_left = this.IsLeftWall();
+    var is_up = this.IsUpWall();
+    var is_down = this.IsDownWall();
 
     with (this.GetDrawer())
     {
         SetFillColor(bg);
         FillRect(col + d, row + d, col + 1 - d, row + 1 - d);
+
+        SetFillColor(wall_color);
+
+        if (is_right)
+        {
+            FillRect(col + 1 - w, row + d, col + 1, row + 1 - d);
+        }
+
+        if (is_left)
+        {
+            FillRect(col, row + d, col + w, row + 1 - d);
+        }
+
+        if (is_up)
+        {
+            FillRect(col + d, row + 1 - w, col + 1 - d, row + 1);
+        }
+
+        if (is_down)
+        {
+            FillRect(col + d, row, col + 1 - d, row + w);
+        }
     }
 }
 
@@ -93,6 +124,50 @@ Cell.prototype.IsUpWall = function()
 Cell.prototype.IsDownWall = function()
 {
     return this.DownWall;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set right wall attribute.
+//
+// Arguments:
+//   val - value of attribute.
+Cell.prototype.SetRightWall = function(val)
+{
+    this.RightWall = val;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set left wall attribute.
+//
+// Arguments:
+//   val - value of attribute.
+Cell.prototype.SetLeftWall = function(val)
+{
+    this.LeftWall = val;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set up wall attribute.
+//
+// Arguments:
+//   val - value of attribute.
+Cell.prototype.SetUpWall = function(val)
+{
+    this.UpWall = val;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set down wall attribute.
+//
+// Arguments:
+//   val - value of attribute.
+Cell.prototype.SetDownWall = function(val)
+{
+    this.DownWall = val;
 }
 
 //--------------------------------------------------------------------------------------------------
