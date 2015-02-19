@@ -84,6 +84,9 @@ Figure.DefaultColor = function(type)
         case "1fire":
             return "#a60000";
 
+        case "1green":
+            return "#00cc00";
+
         case "2":
             return "#2f6a3c";
 
@@ -242,6 +245,7 @@ Figure.prototype.Cells = function()
         //   @  ->  @  ->  @  ->  @
         case "1gold":
         case "1fire":
+        case "1green":
             return this.Cells1(r, c);
 
         // 2 - 2 cells line.

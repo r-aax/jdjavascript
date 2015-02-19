@@ -287,6 +287,7 @@ Game.prototype.FixFigure = function()
 Game.prototype.FixFigureAndRemoveCells = function()
 {
     var is_fire = (this.Figure.Type == "1fire");
+    var is_green = (this.Figure.Type == "1green");
     var row = this.Figure.Row;
     var col = this.Figure.Col;
 
@@ -299,7 +300,15 @@ Game.prototype.FixFigureAndRemoveCells = function()
     }
 
     var lines_count = this.Board.RemoveFullLines();
-    this.AddScores(this.ScoresForLines(lines_count));
+
+    if (is_green && (lines_count > 0) && (this.Speed > 1))
+    {
+        this.SpeedDown();
+    }
+    else
+    {
+        this.AddScores(this.ScoresForLines(lines_count));
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -361,19 +370,20 @@ Game.prototype.SetDefaultFigures = function()
     {
         this.FiguresProbs =
             [
-                { E : "1gold", P : JD.Content.ElementNValue(this.Document, "f1gold") },
-                { E : "1fire", P : JD.Content.ElementNValue(this.Document, "f1fire") },
-                { E : "2",     P : JD.Content.ElementNValue(this.Document, "f2") },
-                { E : "3ln",   P : JD.Content.ElementNValue(this.Document, "f3ln") },
-                { E : "3an",   P : JD.Content.ElementNValue(this.Document, "f3an") },
-                { E : "4ln",   P : JD.Content.ElementNValue(this.Document, "f4ln") },
-                { E : "4sq",   P : JD.Content.ElementNValue(this.Document, "f4sq") },
-                { E : "4anr",  P : JD.Content.ElementNValue(this.Document, "f4anr") },
-                { E : "4anl",  P : JD.Content.ElementNValue(this.Document, "f4anl") },
-                { E : "4snr",  P : JD.Content.ElementNValue(this.Document, "f4snr") },
-                { E : "4snl",  P : JD.Content.ElementNValue(this.Document, "f4snl") },
-                { E : "4cr",   P : JD.Content.ElementNValue(this.Document, "f4cr") },
-                { E : "5star", P : JD.Content.ElementNValue(this.Document, "f5star") }
+                { E : "1gold",  P : JD.Content.ElementNValue(this.Document, "f1gold") },
+                { E : "1fire",  P : JD.Content.ElementNValue(this.Document, "f1fire") },
+                { E : "1green", P : JD.Content.ElementNValue(this.Document, "f1green") },
+                { E : "2",      P : JD.Content.ElementNValue(this.Document, "f2") },
+                { E : "3ln",    P : JD.Content.ElementNValue(this.Document, "f3ln") },
+                { E : "3an",    P : JD.Content.ElementNValue(this.Document, "f3an") },
+                { E : "4ln",    P : JD.Content.ElementNValue(this.Document, "f4ln") },
+                { E : "4sq",    P : JD.Content.ElementNValue(this.Document, "f4sq") },
+                { E : "4anr",   P : JD.Content.ElementNValue(this.Document, "f4anr") },
+                { E : "4anl",   P : JD.Content.ElementNValue(this.Document, "f4anl") },
+                { E : "4snr",   P : JD.Content.ElementNValue(this.Document, "f4snr") },
+                { E : "4snl",   P : JD.Content.ElementNValue(this.Document, "f4snl") },
+                { E : "4cr",    P : JD.Content.ElementNValue(this.Document, "f4cr") },
+                { E : "5star",  P : JD.Content.ElementNValue(this.Document, "f5star") }
             ];
     }
 }
@@ -516,6 +526,21 @@ Game.prototype.SpeedUp = function()
     if (sp < 10)
     {
         sp++;
+        this.SetSpeed(sp);
+        this.LastSpeedChangeScores = this.Scores;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Set speed down.
+Game.prototype.SpeedDown = function()
+{
+    var sp = this.Speed;
+
+    if (sp > 1)
+    {
+        sp--;
         this.SetSpeed(sp);
         this.LastSpeedChangeScores = this.Scores;
     }
