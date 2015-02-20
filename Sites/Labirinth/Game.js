@@ -16,6 +16,9 @@ function Game(doc)
 
     // Create board.
     this.GetBoard();
+
+    // Info.
+    this.Info = new Drawer("info", 10, 2, false, true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -76,6 +79,10 @@ Game.prototype.Draw = function()
 {
     this.GetBoard().Draw();
     this.GetBoard().GetCell(this.GetHumanRow(), this.GetHumanCol()).DrawHuman();
+
+    // Information.
+    this.Info.SetFillColor("lightgray");
+    this.Info.Fill();
 }
 
 //--------------------------------------------------------------------------------------------------
