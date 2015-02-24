@@ -83,6 +83,15 @@ Game.prototype.Draw = function()
     // Information.
     this.Info.SetFillColor("lightgray");
     this.Info.Fill();
+    this.Info.SetColor("#444444");
+    this.Info.DrawRect(0, 0, 10, 2);
+    this.Info.DrawLine(5, 0, 5, 2);
+    this.Info.SetFillColor("#444444");
+    this.Info.SetFont("bold 12px lucida console");
+    this.Info.DrawText(1.5, 1.2, "Labirinth");
+    this.Info.SetFont("12px lucida console");
+    this.Info.SetFillColor("steelblue");
+    this.Info.DrawText(0.2, 0.4, "joydeveloping@gmail.com");
 }
 
 //--------------------------------------------------------------------------------------------------
