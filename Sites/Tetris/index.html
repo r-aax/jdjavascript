@@ -54,6 +54,7 @@ function Init()
 // Load document.
 function OnLoad()
 {
+    SetFiguresWeightsScheme("default");
     Init();
 }
 
@@ -178,6 +179,82 @@ function WriteFiguresTableTR(cells, descr, id, default_value)
 
 //--------------------------------------------------------------------------------------------------
 
+// Set figures weights scheme.
+//
+// Arguments:
+//   scheme_name - name of scheme.
+function SetFiguresWeightsScheme(scheme_name)
+{
+    var f1gold = document.getElementById("f1gold");
+    var f1fire = document.getElementById("f1fire");
+    var f1green = document.getElementById("f1green");
+    var f2 = document.getElementById("f2");
+    var f3ln = document.getElementById("f3ln");
+    var f3an = document.getElementById("f3an");
+    var f4ln = document.getElementById("f4ln");
+    var f4sq = document.getElementById("f4sq");
+    var f4anr = document.getElementById("f4anr");
+    var f4anl = document.getElementById("f4anl");
+    var f4snr = document.getElementById("f4snr");
+    var f4snl = document.getElementById("f4snl");
+    var f4cr = document.getElementById("f4cr");
+    var f5star = document.getElementById("f5star");
+
+    switch (scheme_name)
+    {
+        case "default":
+            f1gold.value = 1;
+            f1fire.value = 1;
+            f1green.value = 1;
+            f2.value = 1;
+            f3ln.value = 1;
+            f3an.value = 1;
+            f4ln.value = 1;
+            f4sq.value = 1;
+            f4anr.value = 1;
+            f4anl.value = 1;
+            f4snr.value = 1;
+            f4snl.value = 1;
+            f4cr.value = 1;
+            f5star.value = 1;
+            break;
+
+        case "classic":
+            f1gold.value = 0;
+            f1fire.value = 0;
+            f1green.value = 0;
+            f2.value = 0;
+            f3ln.value = 0;
+            f3an.value = 0;
+            f4ln.value = 1;
+            f4sq.value = 1;
+            f4anr.value = 1;
+            f4anl.value = 1;
+            f4snr.value = 1;
+            f4snl.value = 1;
+            f4cr.value = 1;
+            f5star.value = 0;
+            break;
+
+        default:
+            JD.Utils.Check(false, "SetFiguresWeightsScheme");
+            break;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Change scheme of figures weights.
+//
+// Arguments:
+//   sel - select object.
+function ChangeFiguresWeightsScheme(sel)
+{
+    SetFiguresWeightsScheme(sel.options[sel.selectedIndex].value);
+}
+
+//--------------------------------------------------------------------------------------------------
+
 -->
 
         </script>
@@ -211,6 +288,12 @@ function WriteFiguresTableTR(cells, descr, id, default_value)
         </table>
 
         <br>
+        Figures weights scheme :
+        <select name="weights_scheme" onchange="ChangeFiguresWeightsScheme(this)">
+            <option value="default">Default</option>
+            <option value="classic">Classic</option>
+        </select>
+        <br><br>
         <table border="1">
             <tr><th>cells</th><th>description</th><th>weight</th></tr>
 
