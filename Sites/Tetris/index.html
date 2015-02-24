@@ -154,7 +154,10 @@ function OnSpaceKeyDown()
 {
     if (G.IsStart())
     {
-        alert("space start");
+        G.FastDown();
+        G.FixFigureAndRemoveCells();
+        G.CreateNewFigure();
+        G.Draw();
     }
     else if (G.IsEnd())
     {

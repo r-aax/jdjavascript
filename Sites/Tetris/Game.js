@@ -246,6 +246,17 @@ Game.prototype.DownWithCheck = function()
 
 //--------------------------------------------------------------------------------------------------
 
+// Move figure down while it is possible.
+Game.prototype.FastDown = function()
+{
+    while (this.DownWithCheck())
+    {
+        ;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Rotate with check.
 //
 // Result:
