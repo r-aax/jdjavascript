@@ -34,8 +34,10 @@ Game.prototype.GetBoard = function()
 {
     if (this.Board == undefined)
     {
-        var drawer = new Drawer("canvas", 10, 10, false, true);
-        this.Board = new Board(10, 10, drawer);
+        var rows = JD.Content.ElementNValue(this.GetDocument(), "rows");
+        var cols = JD.Content.ElementNValue(this.GetDocument(), "cols");
+        var drawer = new Drawer("canvas", cols, rows, false, true);
+        this.Board = new Board(rows, cols, drawer);
     }
 
     return this.Board;

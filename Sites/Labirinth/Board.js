@@ -19,7 +19,7 @@ function Board(rows, cols, drawer)
     this.GetMinCol = function() { return 0; }
     this.GetMaxCol = function() { return cols - 1; }
     this.GetDrawer = function() { return drawer; }
-    this.GetBGColor = function() { return "white"; }
+    this.GetBGColor = function() { return "lightgray"; }
 
     // Init table of cells.
     this.M = new Array(rows);

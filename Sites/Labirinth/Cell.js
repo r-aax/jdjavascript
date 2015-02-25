@@ -53,28 +53,28 @@ Cell.prototype.Draw = function()
     with (this.GetDrawer())
     {
         SetFillColor(bg);
-        FillRect(col + d, row + d, col + 1 - d, row + 1 - d);
+        FillRect(col /* + d */, row /* + d */, col + 1 /* - d */, row + 1 /* - d */);
 
         SetFillColor(wall_color);
 
         if (is_right)
         {
-            FillRect(col + 1 - w, row + d, col + 1, row + 1 - d);
+            FillRect(col + 1 - w, row /* + d */, col + 1, row + 1 /* - d */);
         }
 
         if (is_left)
         {
-            FillRect(col, row + d, col + w, row + 1 - d);
+            FillRect(col, row /* + d */, col + w, row + 1 /* - d */);
         }
 
         if (is_up)
         {
-            FillRect(col + d, row + 1 - w, col + 1 - d, row + 1);
+            FillRect(col /* + d */, row + 1 - w, col + 1 /* - d */, row + 1);
         }
 
         if (is_down)
         {
-            FillRect(col + d, row, col + 1 - d, row + w);
+            FillRect(col /* + d */, row, col + 1 /* - d */, row + w);
         }
     }
 }
