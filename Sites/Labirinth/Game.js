@@ -19,6 +19,9 @@ function Game(doc)
 
     // Info.
     this.Info = new Drawer("info", 10, 2, false, true);
+
+    // Status - the game is started.
+    this.Status = "start";
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -71,14 +74,34 @@ Game.prototype.GetHumanCol = function()
 }
 
 //--------------------------------------------------------------------------------------------------
+
+// Check if human left from exit.
+//
+// Result:
+//   true - if human is left from exit,
+//   false - if human is not left from exit.
+Game.prototype.IsHumanLeftFromExit = function()
+{
+    return (this.GetHumanRow() == this.GetBoard().GetMaxRow())
+           && (this.GetHumanCol() == this.GetBoard().GetMaxCol());
+}
+
+//--------------------------------------------------------------------------------------------------
 // Draw.
 //--------------------------------------------------------------------------------------------------
 
 // Draw.
-Game.prototype.Draw = function()
+//
+// Arguments:
+//   is_draw_human - is needed to draw human.
+Game.prototype.Draw = function(is_draw_human)
 {
     this.GetBoard().Draw();
-    this.GetBoard().GetCell(this.GetHumanRow(), this.GetHumanCol()).DrawHuman();
+
+    if (is_draw_human)
+    {
+        this.GetBoard().GetCell(this.GetHumanRow(), this.GetHumanCol()).DrawHuman();
+    }
 
     // Information.
     this.Info.SetFillColor("lightgray");
@@ -92,6 +115,23 @@ Game.prototype.Draw = function()
     this.Info.SetFont("12px lucida console");
     this.Info.SetFillColor("steelblue");
     this.Info.DrawText(0.2, 0.4, "joydeveloping@gmail.com");
+
+    if (this.IsEnd())
+    {
+        with (this.GetBoard().GetDrawer())
+        {
+            var cx = this.GetDocument().getElementById("canvas").width / 2;
+            var cy = this.GetDocument().getElementById("canvas").height / 2;
+
+            SetFillColor("darkgrey");
+            SetColor("#333333");
+            FillRectCenteredI(cx, cy - 5, 320, 40);
+            DrawRectCenteredI(cx, cy - 5, 320, 40);
+            SetFillColor("#932510");
+            SetFont("bold 20px lucida console");
+            DrawTextCenteredI(cx, cy, "Press SPACE to play again");
+        }
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -203,6 +243,32 @@ Game.prototype.GoDown = function()
     {
         this.HumanRow--;
     }
+}
+
+//--------------------------------------------------------------------------------------------------
+// Game status.
+//--------------------------------------------------------------------------------------------------
+
+// Check if game is started.
+//
+// Result:
+//   true - if game is started,
+//   false - if game is not started.
+Game.prototype.IsStart = function()
+{
+    return this.Status == "start";
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if game is ended.
+//
+// Result:
+//   true - if game is ended,
+//   false - if game is not ended.
+Game.prototype.IsEnd = function()
+{
+    return this.Status == "end";
 }
 
 //--------------------------------------------------------------------------------------------------

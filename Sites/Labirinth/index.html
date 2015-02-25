@@ -46,7 +46,7 @@ function Init()
         ConstructRandomLabirinth();
     }
 
-    G.Draw();
+    G.Draw(true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -98,8 +98,19 @@ function OnKeyDown(e)
 // Right arrow key down.
 function OnRightArrowKeyDown()
 {
-    G.GoRight();
-    G.Draw();
+    if (G.IsStart())
+    {
+        if (G.IsHumanLeftFromExit())
+        {
+            G.Status = "end";
+            G.Draw(false);
+        }
+        else
+        {
+            G.GoRight();
+            G.Draw(true);
+        }
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -107,8 +118,11 @@ function OnRightArrowKeyDown()
 // Left arrow key down.
 function OnLeftArrowKeyDown()
 {
-    G.GoLeft();
-    G.Draw();
+    if (G.IsStart())
+    {
+        G.GoLeft();
+        G.Draw(true);
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -116,8 +130,11 @@ function OnLeftArrowKeyDown()
 // Up arrow key down.
 function OnUpArrowKeyDown()
 {
-    G.GoUp();
-    G.Draw();
+    if (G.IsStart())
+    {
+        G.GoUp();
+        G.Draw(true);
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -125,8 +142,11 @@ function OnUpArrowKeyDown()
 // Down arrow key down.
 function OnDownArrowKeyDown()
 {
-    G.GoDown();
-    G.Draw();
+    if (G.IsStart())
+    {
+        G.GoDown();
+        G.Draw(true);
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -134,7 +154,10 @@ function OnDownArrowKeyDown()
 // Space key down.
 function OnSpaceKeyDown()
 {
-    alert("space button");
+    if (G.IsEnd())
+    {
+        Init();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -143,7 +166,7 @@ function OnSpaceKeyDown()
 
         </script>
     </head>
-    <body onload="OnLoad()" onkeydown="OnKeyDown(event)">
+    <body onload="OnLoad()" onkeydown="OnKeyDown(event); return G.IsEnd();">
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td>

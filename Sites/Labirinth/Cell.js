@@ -36,7 +36,7 @@ function Cell(row, col, drawer)
 Cell.prototype.Draw = function()
 {
     // Margin.
-    var d = 0.00;
+    var d = 0.0;
 
     // Wall width.
     var w = 0.06;
