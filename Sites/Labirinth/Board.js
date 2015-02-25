@@ -175,4 +175,15 @@ Board.prototype.AddDownWall = function(row, col)
 }
 
 //--------------------------------------------------------------------------------------------------
+// Construct random labirinth.
+//--------------------------------------------------------------------------------------------------
+
+// Construct random labirinth.
+Board.prototype.ConstructRandomLabirinth = function()
+{
+    this.AddRightWall(5, 5);
+    this.AddLeftWall(5, 5);
+}
+
+//--------------------------------------------------------------------------------------------------
 

@@ -86,14 +86,26 @@ Cell.prototype.DrawHuman = function()
 
     with (this.GetDrawer())
     {
-        SetColor("#444444");
-        DrawLine(col_c - 0.3, row_c, col_c + 0.3, row_c);
+        // Body.
         SetFillColor("steelblue");
         FillRect(col_c - 0.08, row_c - 0.3, col_c + 0.08, row_c + 0.2);
-        SetFillColor("brown");
-        FillCircle(col_c, row_c + 0.2, 0.14);
-        DrawLine(col_c - 0.08, row_c - 0.3, col_c - 0.08, row_c - 0.45);
-        DrawLine(col_c + 0.08, row_c - 0.3, col_c + 0.08, row_c - 0.45);
+
+        // Head.
+        SetFillColor("orange");
+        SetColor("brown");
+        FillCircle(col_c, row_c + 0.2, 0.12);
+        DrawCircle(col_c, row_c + 0.2, 0.12);
+
+        // Limbs.
+        SetFillColor("#444444");
+        FillRect(col_c - 0.05, row_c, col_c - 0.3, row_c - 0.05);
+        FillRect(col_c + 0.05, row_c, col_c + 0.3, row_c - 0.05);
+        FillRect(col_c - 0.02, row_c - 0.2, col_c - 0.07, row_c - 0.45);
+        FillRect(col_c + 0.02, row_c - 0.2, col_c + 0.07, row_c - 0.45);
+
+        // Belt.
+        SetFillColor("darkred");
+        FillRect(col_c - 0.08, row_c - 0.25, col_c + 0.08, row_c - 0.15);
     }
 }
 
