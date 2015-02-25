@@ -28,6 +28,14 @@ JD.Utils.Check = function(cond, str)
 }
 
 //--------------------------------------------------------------------------------------------------
+
+// Checker for not implemented functional.
+JD.Utils.NotImplemented = function()
+{
+    this.Check(false, "not implemented");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Pseudo random numbers.
 //--------------------------------------------------------------------------------------------------
 
@@ -127,14 +135,6 @@ JD.Utils.RandomArrayWeightedElement = function(ar)
     }
 
     return ar[i].E;
-}
-
-//--------------------------------------------------------------------------------------------------
-
-// Checker for not implemented functional.
-JD.Utils.NotImplemented = function()
-{
-    this.Check(false, "not implemented");
 }
 
 //--------------------------------------------------------------------------------------------------

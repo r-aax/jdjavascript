@@ -23,6 +23,9 @@ function Cell(row, col, drawer)
     this.LeftWall = false;
     this.UpWall = false;
     this.DownWall = false;
+
+    // Id.
+    this.Id = 0;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -33,10 +36,10 @@ function Cell(row, col, drawer)
 Cell.prototype.Draw = function()
 {
     // Margin.
-    var d = 0.02;
+    var d = 0.00;
 
     // Wall width.
-    var w = 0.08;
+    var w = 0.06;
 
     var row = this.GetRow();
     var col = this.GetCol();
@@ -201,6 +204,66 @@ Cell.prototype.SetUpWall = function(val)
 Cell.prototype.SetDownWall = function(val)
 {
     this.DownWall = val;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if there is right neighbour.
+//
+// Result:
+//   true - if there is right neighbour,
+//   false - if there is no right neighbour.
+//
+// Warning:
+//   We suppose labirinth has outer borders.
+Cell.prototype.IsRightNeighbour = function()
+{
+    return !this.IsRightWall();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if there is left neighbour.
+//
+// Result:
+//   true - if there is left neighbour,
+//   false - if there is no left neighbour.
+//
+// Warning:
+//   We suppose labirinth has outer borders.
+Cell.prototype.IsLeftNeighbour = function()
+{
+    return !this.IsLeftWall();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if there is up neighbour.
+//
+// Result:
+//   true - if there is up neighbour,
+//   false - if there is no up neighbour.
+//
+// Warning:
+//   We suppose labirinth has outer borders.
+Cell.prototype.IsUpNeighbour = function()
+{
+    return !this.IsUpWall();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if there is down neighbour.
+//
+// Result:
+//   true - if there is down neighbour,
+//   false - if there is no down neighbour.
+//
+// Warning:
+//   We suppose labirinth has outer borders.
+Cell.prototype.IsDownNeighbour = function()
+{
+    return !this.IsDownWall();
 }
 
 //--------------------------------------------------------------------------------------------------
