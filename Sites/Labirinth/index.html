@@ -162,6 +162,14 @@ function OnSpaceKeyDown()
 
 //--------------------------------------------------------------------------------------------------
 
+// Restart game.
+function Restart()
+{
+    Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+
 -->
 
         </script>
@@ -182,6 +190,11 @@ function OnSpaceKeyDown()
 
         <br>
         <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><input type="button" value="restart" onclick="Restart()"></td>
+        </tr>
         <tr>
             <td>Field size :</td>
             <td><input type="text" id="rows" value="20"></td>
