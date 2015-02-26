@@ -39,6 +39,11 @@ var G;
 // Init.
 function Init()
 {
+    var canvas = document.getElementById("canvas");
+
+    canvas.width = JD.Content.ElementNValue(document, "wpixels");
+    canvas.height = JD.Content.ElementNValue(document, "hpixels");
+
     G = new Game(document);
 
     with (G.GetBoard())
@@ -190,16 +195,21 @@ function Restart()
 
         <br>
         <table>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><input type="button" value="restart" onclick="Restart()"></td>
-        </tr>
-        <tr>
-            <td>Field size :</td>
-            <td><input type="text" id="rows" value="20"></td>
-            <td><input type="text" id="cols" value="20"></td>
-        </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><input type="button" value="restart" onclick="Restart()"></td>
+            </tr>
+            <tr>
+                <td>Field size :</td>
+                <td><input type="text" id="cols" value="20"></td>
+                <td><input type="text" id="rows" value="20"></td>
+            </tr>
+            <tr>
+                <td>Canvas size :</td>
+                <td><input type="text" id="wpixels" value="400"></td>
+                <td><input type="text" id="hpixels" value="400"></td>
+            </tr<
         </table>
     </body>
 </html>
