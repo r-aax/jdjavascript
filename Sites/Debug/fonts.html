@@ -1,0 +1,148 @@
+﻿<!--
+Test site for fonts.
+
+Copyright Joy Developing.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Примеры шрифтов</title>
+    <script>
+
+<!--
+
+rus_text = "Просто пришло время ему объявиться именно здесь - в этом маленьком городишке штата "
+           + "Мэн, где раз в неделю устраивается церковный ужин с жареными бобами, где маленькие "
+           + "мальчики и девочки все еще приносят своим учителям яблоки и где местный "
+           + "еженедельник с религиозным трепетом сообщает о загородных прогулках, организуемых "
+           + "Клубом пожилых горожан.";
+eng_text = "A rule by Transportation Secretary Ray LaHood, taking effect April 29, would impose "
+           + "fines as high as $27,500 for each customer when an airline fails to free passengers "
+           + "after three hours. The Air Transport Association said carriers will cancel flights "
+           + "rather than breach the limit, and a travel group said flights scrapped in New York "
+           + "may rise as much as 15 percent.";
+
+//--------------------------------------------------------------------------------------------------
+
+// Write text with given font.
+//
+// Arguments:
+//   font - font name.
+function write_font(font)
+{
+    text = "<br>";
+    text = text + "<p><font face=\"\"><big><b>" + font + "</b></big></font></p>";
+    text = text + "<br>";
+    text = text + "<p><font face=\"" + font + "\">" + rus_text + "</font></p>";
+    text = text + "<br>";
+    text = text + "<p><font face=\"" + font + "\">" + eng_text + "</font></p>";
+    text = text + "<br><hr>";
+    document.write(text);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Write text with all fonts.
+function write_all()
+{
+    fonts =
+    [
+        "@MS Mincho",
+        "Arial",
+        "Arial Narrow",
+        "@Arial Unicode MS",
+        "Arial Black",
+        "Arial Unicode MS",
+        "Book Antiqua",
+        "Bookman Old Style",
+        "Bookshelf Symbol 7",
+        "Calibri",
+        "Cambria",
+        "Cambria Math",
+        "Candara",
+        "Century",
+        "Century Gothic",
+        "Comic Sans MS",
+        "Consolas",
+        "Constantia",
+        "Corbel",
+        "Courier",
+        "Courier New",
+        "Estrangelo Edessa",
+        "Fixedsys",
+        "Franklin Gothic Medium",
+        "Gautami",
+        "Garamond",
+        "Georgia",
+        "Impact",
+        "Latha",
+        "Lucida Console",
+        "Lucida Sans Unicode",
+        "Mangal",
+        "Marlett",
+        "Microsoft Sans Serif",
+        "Modern",
+        "MS Mincho",
+        "MS Reference Sans Serif",
+        "MS Reference Specialty",
+        "MS Serif",
+        "MS Sans Serif",
+        "MT Extra",
+        "MV Boli",
+        "Raavi",
+        "Nina",
+        "Roman",
+        "Script",
+        "Segoe UI",
+        "Shruti",
+        "Small Fonts",
+        "Sylfaen",
+        "Symbol",
+        "System",
+        "Tahoma",
+        "Times New Roman",
+        "Trebuchet MS",
+        "Tunga",
+        "Verdana",
+        "Webdings",
+        "Wingdings",
+        "Wingdings 2",
+        "Wingdings 3",
+        "WST_Czec",
+        "WST_Engl",
+        "WST_Fren",
+        "WST_Germ",
+        "WST_Ital",
+        "WST_Span",
+        "WST_Swed",
+        "serif",
+        "sans-serif",
+        "cursive",
+        "fantasy",
+        "monospace"
+    ];
+
+    for(var i = 0; i < fonts.length; i++)
+    {
+        write_font(fonts[i]);
+    }
+}
+
+-->
+
+    </script>
+</head>
+<body bgcolor="#D8D8D8">
+    <script>
+
+<!--
+
+write_all();
+
+-->
+
+    </script>
+</body>
+</html>
+
