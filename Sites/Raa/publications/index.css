@@ -1,0 +1,45 @@
+﻿// Copyright Joy Developing.
+
+body, table, tr, td
+{
+    color : #666666;
+    background-color : #eeeeee;
+    font-family : Trebuchet MS, Verdana, Arial;
+    font-size : 10pt;
+    margin : 0px 0px 0px 0px;
+    padding : 0px 0px 0px 0px;
+    border-spacing : 0px;
+}
+
+table
+{
+    width : 100%;
+    height : 100%;
+}
+
+img
+{
+    border : none;
+}
+
+hr
+{
+    width : 100%;
+    border-style : solid;
+    border-color : silver;
+}
+
+a
+{
+    font-family : Verdana;
+    color : steelblue;
+    text-decoration : none;
+}
+
+a:hover
+{
+    font-family : Verdana;
+    color : steelblue;
+    text-decoration : underline;
+}
+
