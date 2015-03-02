@@ -1,101 +1,101 @@
 /*
-	Палитра 1:
-		#FF1E00
-		#BF4030
-		#A61300
-		#FF5640
-		#FF8373
-	Палитра 2:
-		#00BF32
-		#248F40
-		#007C21
-		#38DF64
-		#64DF85
-*/
+ * CSS styles for travel page.
+ *
+ * Copyright Joy Developing.
+ */
 
+/*
+ * Palette 1:
+ *   #FF1E00
+ *   #BF4030
+ *   #A61300
+ *   #FF5640
+ *   #FF8373
+ * Palette 2:
+ *   #00BF32
+ *   #248F40
+ *   #007C21
+ *   #38DF64
+ *   #64DF85
+ */
 
-/* Основные цвета и отступы документа */
+/* Main colors. */
 body, table, tr, td, hr, iframe
 {
-	color : #A61300;
-	font-family : verdana, sans-serif;
-	font-size : 10pt;
-	margin : 0px 0px 0px 0px;
-	padding : 0px 0px 0px 0px;
-	border-spacing : 0px
+    color : #A61300;
+    font-family : verdana, sans-serif;
+    font-size : 10pt;
+    margin : 0px 0px 0px 0px;
+    padding : 0px 0px 0px 0px;
+    border-spacing : 0px
 }
 
-
-/* Отсутствие границ */
+/* No borders. */
 iframe
 {
-	border : none
+    border : none
 }
 
-
-/* Максимальные размеры элементов */
+/* Max elemets sizes. */
 table.sketch, iframe
 {
-	width : 100%;
-	height : 100%
+    width : 100%;
+    height : 100%
 }
 
-
-/* Горизонтальный разделитель */
+/* HR. */
 hr
 {
-	width : 100%;
-	border-style : solid;
-	border-color : silver
+    width : 100%;
+    border-style : solid;
+    border-color : silver
 }
 
-
-/* Ссылки */
+/* Anchors. */
 a
 {
-	text-decoration : none
+    text-decoration : none
 }
 a:hover
 {
-	text-decoration : underline
+    text-decoration : underline
 }
 
-/* Изображения */
+/* Images. */
 img
 {
-	border : none
+    border : none
 }
 
-/* Палитра */
+/* Palette. */
 .bg1
 {
-	background-color : #FF1E00
+    background-color : #FF1E00
 }
 .bg2
 {
-	background-color : #BF4030
+    background-color : #BF4030
 }
 .bg3
 {
-	background-color : #A61300
+    background-color : #A61300
 }
 .bg4
 {
-	background-color : #FF5640
+    background-color : #FF5640
 }
 .bg5
 {
-	background-color : #FF8373
+    background-color : #FF8373
 }
 
-
-/* Цвета элементов */
+/* Elements colors. */
 td.head
 {
-	background-color : #A61300
+    background-color : #A61300
 }
 td.menu
 {
-	background-color : #FF8373
+    background-color : #FF8373
 }
 
