@@ -1,139 +1,102 @@
+<!--
+Raa travel page.
+
+Copyright Joy Developing.
+-->
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html lang="ru">
+<html>
 <head>
-	<meta http-equiv="language" content="ru"> 
-	<meta http-equiv="content-type" content="text/html; charset=windows-1251"> 
-	<meta http-equiv="content-style-type" content="text/css"> 
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="language" content="Russian, RU">
-	<meta name="Author" lang="en" content="r-aa">
-	<link rel="stylesheet" href="travel.css" type="text/css" title="default" media="screen">
-	<link rel="icon" href="http://r-aax.narod.ru/pics/logo.png">
-	<title>Путешествия</title>
-	<script type="text/javascript" language="JavaScript" src="../js/Content.js"></script>
-	<script type="text/javascript" language="JavaScript" src="travel.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-style-type" content="text/css">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="travel.css" type="text/css" title="default" media="screen">
+    <title>РџСѓС‚РµС€РµСЃС‚РІРёСЏ</title>
+    <script type="text/javascript" language="JavaScript" src="../js/Content.js"></script>
+    <script type="text/javascript" language="JavaScript" src="travel.js"></script>
 </head>
-
 <body onLoad="draw_menu(cmp_xi_db)">
 
-	<!-- Основная таблица разметки -->
-	<table class="sketch" cellpadding="0px" cellspacing="0px">
-		
-		<!-- Шапка -->
-		<tr height="50px">
-			<td colspan="4" class="head">
-				<script type="text/javascript" language="JavaScript">
-				<!--
-					raa.Content.DIV("absolute", 40, 10, 30, 30, "&nbsp;", "bg4");
-					raa.Content.DIV("absolute", 80, 10, 30, 30, "&nbsp;", "bg5");
-					raa.Content.DIV("absolute", 120, 10, 30, 30, "&nbsp;", "bg1");
-					raa.Content.DIV("absolute", 45, 15, 20, 20, "&nbsp;", "bg2");
-					raa.Content.DIV("absolute", 85, 15, 20, 20, "&nbsp;", "bg2");
-					raa.Content.DIV("absolute", 125, 15, 20, 20, "&nbsp;", "bg2");
-				-->
-				</script>
-				<div style="position : absolute; left : 380px; top : 10px">
-					<i><b>
-						<script type="text/javascript" language="JavaScript">
-						<!--
-							raa.Content.Write("<font size=\"5pt\" face=\"Georgia\" color=\"#FF5640\">"
-											  + "Путешествия: "
-											  + "(" + travel_statistic() + ")"
-											  + "</font>");
-						-->
-						</script>
-					</b></i>
-				</div>
-				&nbsp;
-			</td>
-		</tr>
-		<tr><td colspan="4"><img src="../pics/pix.gif" height="3px"></td></tr>
-		
-		<!-- Меню и контент -->
-		<tr height="100%">
-			
-			<!-- Меню -->
-			<td width="0px" class="menu" valign="top">
-				<img src="../pics/pix.gif" height="30" width="300">
-				<center>
-					дата:
-					<a href="javascript:draw_menu(cmp_xi_df)"><img src="../pics/arrow_d.gif" height="10"></a><a href="javascript:draw_menu(cmp_xi_db)"><img src="../pics/arrow_u.gif" height="10"></a>&nbsp;
-					страна:
-					<a href="javascript:draw_menu(cmp_xi_cf)"><img src="../pics/arrow_d.gif" height="10"></a><a href="javascript:draw_menu(cmp_xi_cb)"><img src="../pics/arrow_u.gif" height="10"></a>&nbsp;
-					место:
-					<a href="javascript:draw_menu(cmp_xi_pf)"><img src="../pics/arrow_d.gif" height="10"></a><a href="javascript:draw_menu(cmp_xi_pb)"><img src="../pics/arrow_u.gif" height="10"></a>&nbsp;
-				</center>
-				<img src="../pics/pix.gif" height="20" width="300">
-				<div id="menudiv"></div>
-				<img src="../pics/pix.gif" width="200px" height="0px">
-			</td>
-			<td class="menu"><img src="../pics/pix.gif" width="10"></td>
-			<td><img src="../pics/pix.gif" width="3px"></td>
-			
-			<!-- Контент -->
-			<td width="100%" class="content">
-				<iframe src="munich.12/index.html" name="iframe" frameborder="0"></iframe>
-			</td>
-			
-		</tr>
-		
-		<!-- Эпилог -->
-		<tr><td colspan="4"><img src="../pics/pix.gif" height="3px"></td></tr>
-		<tr height="0px">
-			<td colspan="4" align="right" class="bottom">
-				<hr>
-				<a href="mailto:rybakov.aax@gmail.com">rybakov.aax@gmail.com</a>
-				<br>
-				<img src="../pics/pix.gif" height="10px">
-			</td>
-		</tr>
-		
-	</table>
+    <!-- Main table. -->
+    <table class="sketch" cellpadding="0px" cellspacing="0px">
 
+        <!-- Head. -->
+        <tr height="50px">
+            <td colspan="4" class="head">
+                <script type="text/javascript" language="JavaScript">
+
+<!--
+
+raa.Content.DIV("absolute", 40, 10, 30, 30, "&nbsp;", "bg4");
+raa.Content.DIV("absolute", 80, 10, 30, 30, "&nbsp;", "bg5");
+raa.Content.DIV("absolute", 120, 10, 30, 30, "&nbsp;", "bg1");
+raa.Content.DIV("absolute", 45, 15, 20, 20, "&nbsp;", "bg2");
+raa.Content.DIV("absolute", 85, 15, 20, 20, "&nbsp;", "bg2");
+raa.Content.DIV("absolute", 125, 15, 20, 20, "&nbsp;", "bg2");
+
+-->
+
+                </script>
+                <div style="position : absolute; left : 380px; top : 10px">
+                    <i><b>
+                    <script type="text/javascript" language="JavaScript">
+
+<!--
+
+raa.Content.Write("<font size=\"5pt\" face=\"Georgia\" color=\"#FF5640\">"
+                  + "Travel: (" + travel_statistic() + ")</font>");
+
+-->
+
+                    </script>
+                    </b></i>
+                </div>
+                &nbsp;
+            </td>
+        </tr>
+        <tr><td colspan="4"><img src="../pics/pix.gif" height="3px"></td></tr>
+
+        <!-- Menu and content. -->
+        <tr height="100%">
+
+            <!-- Menu. -->
+            <td width="0px" class="menu" valign="top">
+                <img src="../pics/pix.gif" height="30" width="300">
+                <center>
+                    date:
+                    <a href="javascript:draw_menu(cmp_xi_df)"><img src="../pics/arrow_d.gif" height="10"></a><a href="javascript:draw_menu(cmp_xi_db)"><img src="../pics/arrow_u.gif" height="10"></a>&nbsp;
+                    country:
+                    <a href="javascript:draw_menu(cmp_xi_cf)"><img src="../pics/arrow_d.gif" height="10"></a><a href="javascript:draw_menu(cmp_xi_cb)"><img src="../pics/arrow_u.gif" height="10"></a>&nbsp;
+                    place:
+                    <a href="javascript:draw_menu(cmp_xi_pf)"><img src="../pics/arrow_d.gif" height="10"></a><a href="javascript:draw_menu(cmp_xi_pb)"><img src="../pics/arrow_u.gif" height="10"></a>&nbsp;
+                </center>
+                <img src="../pics/pix.gif" height="20" width="300">
+                <div id="menudiv"></div>
+                <img src="../pics/pix.gif" width="200px" height="0px">
+            </td>
+            <td class="menu"><img src="../pics/pix.gif" width="10"></td>
+            <td><img src="../pics/pix.gif" width="3px"></td>
+
+            <!-- Content. -->
+            <td width="100%" class="content">
+                <iframe src="munich.12/index.html" name="iframe" frameborder="0"></iframe>
+            </td>
+        </tr>
+
+        <!-- Footer. -->
+        <tr><td colspan="4"><img src="../pics/pix.gif" height="3px"></td></tr>
+        <tr height="0px">
+            <td colspan="4" align="right" class="bottom">
+                <hr>
+                <a href="mailto:rybakov.aax@gmail.com">rybakov.aax@gmail.com</a>
+                <br>
+                <img src="../pics/pix.gif" height="10px">
+            </td>
+        </tr>
+    </table>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
 <noscript><noscript><plaintext><plaintext>
+
