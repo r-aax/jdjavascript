@@ -22,7 +22,7 @@
 /* Main styles. */
 body
 {
-    background-color : #eeeeee;
+    background-color : #FFFFFF;
     font-size : 11pt;
     font-family : verdana, sans-serif
 }
@@ -53,7 +53,7 @@ p.descr
 }
 p.quote
 {
-    color : #BF4030;
+    color : #000000;
     font-style : italic
 }
 
@@ -74,7 +74,7 @@ table.sum
     padding : 0px 0px 0px 0px;
     border-spacing : 0px;
     width : 100%;
-    background-color : #64DF85
+    background-color : #FFFFFF
 }
 td
 {
