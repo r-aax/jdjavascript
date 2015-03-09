@@ -1,6 +1,6 @@
 // Game.js - game tetris main logic class.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 // Create.

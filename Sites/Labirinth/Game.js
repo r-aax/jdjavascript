@@ -1,6 +1,6 @@
 // Game.js - game labirinth main logic class.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 // Create.

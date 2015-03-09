@@ -1,6 +1,6 @@
 // Maths.js - mathematical functions.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 

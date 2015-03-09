@@ -1,6 +1,6 @@
 // Cell.js - game labirinth single cell.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 

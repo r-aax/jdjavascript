@@ -1,6 +1,6 @@
 // String.js - string functional extension.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 // travel.js - function for travel page.
 //
-// Copyrigth Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 

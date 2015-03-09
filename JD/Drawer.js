@@ -1,6 +1,6 @@
 // Drawer.js - module for drawing on canvas.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 

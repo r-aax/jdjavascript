@@ -1,6 +1,6 @@
 // Figure.js - fugure.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 // Create.

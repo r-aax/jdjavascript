@@ -1,6 +1,6 @@
 // Array.js - array functional extension.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 

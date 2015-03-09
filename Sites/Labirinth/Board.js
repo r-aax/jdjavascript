@@ -1,6 +1,6 @@
 // Board.js - game labirinth board.
 //
-// Copyright Joy Developing.
+// Author: Alexey Rybakov
 
 //--------------------------------------------------------------------------------------------------
 
