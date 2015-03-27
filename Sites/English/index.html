@@ -16,11 +16,16 @@ body
 }
 
         </style>
+        <script src="Subvocabularies.js"></script>
+        <script src="Vocabulary.js"></script>
         <script>
 
 <!--
 
 // Global variables.
+
+// Vocabulary - set of words.
+var Vocabulary = new Vocabulary();
 
 // Total count of words passed.
 var CounterWords;
@@ -39,6 +44,7 @@ function OnStart()
     CounterWords = 0;
     CounterKnow = 0;
     CounterDoNotKnow = 0;
+    document.getElementById("vocabulary_words_count").innerText = Vocabulary.Count();
 
     Next();
 }
@@ -110,7 +116,9 @@ function Next()
 
     <body onload="OnStart()">
         <center>
-            <input type="button" value="Start / restart" onclick="OnStart()"></td>
+            <input type="button" value="Start / restart" onclick="OnStart()">
+            <br>
+            Current vocabulary contains <font id="vocabulary_words_count">0</font> words.
         </center>
         <br>
         <br>
@@ -157,9 +165,9 @@ function Next()
         <br>
         <br>
         <center>
-            <input type="button" value="I know it" onclick="OnKnow()"></td>
-            <input type="button" value="Show translation" onclick="OnShow()"></td>
-            <input type="button" value="I don't know it" onclick="OnDoNotKnow()"></td>
+            <input type="button" value="I know it" onclick="OnKnow()">
+            <input type="button" value="Show translation" onclick="OnShow()">
+            <input type="button" value="I don't know it" onclick="OnDoNotKnow()">
         </center>
     </body>
 </html>
