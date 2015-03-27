@@ -1,0 +1,166 @@
+<!--
+English - tool for english words learning.
+
+Author: Alexey Rybakov
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>English</title>
+        <style>
+
+body
+{
+    font-family : Verdana
+}
+
+        </style>
+        <script>
+
+<!--
+
+// Global variables.
+
+// Total count of words passed.
+var CounterWords;
+
+// Count of know words.
+var CounterKnow;
+
+// Count of do not know words.
+var CounterDoNotKnow;
+
+//--------------------------------------------------------------------------------------------------
+
+// Start test.
+function OnStart()
+{
+    CounterWords = 0;
+    CounterKnow = 0;
+    CounterDoNotKnow = 0;
+
+    Next();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Click "I know it" button.
+function OnKnow()
+{
+    CounterKnow++;
+
+    Next();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Click "Show translation" button.
+function OnShow()
+{
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Click "I don't know it" button.
+function OnDoNotKnow()
+{
+    CounterDoNotKnow++;
+
+    Next();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Show statistic.
+function ShowStat()
+{
+    var td_words = document.getElementById("stat_words");
+    var td_know = document.getElementById("stat_know");
+    var td_do_not_know = document.getElementById("stat_do_not_know");
+    var td_percent = document.getElementById("stat_percent");
+
+    td_words.innerText = CounterWords;
+    td_know.innerText = CounterKnow;
+    td_do_not_know.innerText = CounterDoNotKnow;
+
+    var perc = (((CounterWords != 0)
+                 ? (CounterKnow / CounterWords)
+                 : 0) * 100.0).toFixed(2);
+
+    td_percent.innerText = perc + "";
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Next word in test.
+function Next()
+{
+    ShowStat();
+
+    CounterWords++;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+-->
+
+        </script>
+    </head>
+
+    <body onload="OnStart()">
+        <center>
+            <input type="button" value="Start / restart" onclick="OnStart()"></td>
+        </center>
+        <br>
+        <br>
+        <table align="center"
+               border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <th align="center">words</th>
+                <th align="center">yes</th>
+                <th align="center">no</th>
+                <th align="center">%</th>
+            </tr>
+            <tr>
+                <td width="100pt" align="center" id="stat_words">
+                    words
+                </td>
+                <td width="100pt" align="center" id="stat_know">
+                    know
+                </td>
+                <td width="100pt" align="center" id="stat_do_not_know">
+                    don't know
+                </td>
+                <td width="100pt" align="center" id="stat_percent">
+                    percent
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table width="600pt" align="center"
+               border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <th align="center">english</th>
+                <th align="center">russian</th>
+            </tr>
+            <tr>
+                <td align="center">
+                    english
+                </td>
+                <td align="center">
+                    russian
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <center>
+            <input type="button" value="I know it" onclick="OnKnow()"></td>
+            <input type="button" value="Show translation" onclick="OnShow()"></td>
+            <input type="button" value="I don't know it" onclick="OnDoNotKnow()"></td>
+        </center>
+    </body>
+</html>
+
