@@ -110,6 +110,26 @@ function CreateSubvocabulary_Top100()
 { E : "yesterday",  R : "вчера" },
 { E : "you",        R : "ты, вы" }
 
+    ];
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Irregular verbs subvocabulary.
+function CreateSubvocabulary_IrregularVerbs()
+{
+    return /* bracket must be on the same line */ [
+
+        ];
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Armor subvocabulary.
+function CreateSubvocabulary_Armor()
+{
+    return /* bracket must be on the same line */ [
+
         ];
 }
 
