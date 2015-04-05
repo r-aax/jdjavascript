@@ -12,6 +12,7 @@ function Vocabulary()
     this.Subvocabularies = new Array();
 
     this.Subvocabularies.push(CreateSubvocabulary_Top100());
+    this.Subvocabularies.push(CreateSubvocabulary_Top400Things());
     this.Subvocabularies.push(CreateSubvocabulary_IrregularVerbs());
     this.Subvocabularies.push(CreateSubvocabulary_Armor());
 }
