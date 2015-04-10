@@ -6,6 +6,7 @@ Author: Alexey Rybakov
 
 <!DOCTYPE html>
 <html>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <head>
         <title>English</title>
         <style>
@@ -16,6 +17,8 @@ body
 }
 
         </style>
+        <script src="../../JD/Utils.js"></script>
+        <script src="../../JD/Content.js"></script>
         <script src="Subvocabularies.js"></script>
         <script src="Vocabulary.js"></script>
         <script>
@@ -25,7 +28,7 @@ body
 // Global variables.
 
 // Vocabulary - set of words.
-var Vocabulary = new Vocabulary();
+var Voc = null;
 
 // Total count of words passed.
 var CounterWords;
@@ -41,10 +44,11 @@ var CounterDoNotKnow;
 // Start test.
 function OnStart()
 {
+    Voc = new Vocabulary(document);
     CounterWords = 0;
     CounterKnow = 0;
     CounterDoNotKnow = 0;
-    document.getElementById("vocabulary_words_count").innerText = Vocabulary.Count();
+    document.getElementById("vocabulary_words_count").innerText = Voc.Count();
 
     Next();
 }
@@ -64,6 +68,7 @@ function OnKnow()
 // Click "Show translation" button.
 function OnShow()
 {
+    document.getElementById("rus").bgColor = "white";
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -103,6 +108,12 @@ function ShowStat()
 function Next()
 {
     ShowStat();
+
+    var r = Voc.Random();
+    document.getElementById("eng").innerText = r.E;
+    var rus = document.getElementById("rus");
+    rus.innerText = r.R;
+    rus.bgColor = "black";
 
     CounterWords++;
 }
@@ -154,10 +165,10 @@ function Next()
                 <th align="center">russian</th>
             </tr>
             <tr>
-                <td align="center">
+                <td align="center" id="eng">
                     english
                 </td>
-                <td align="center">
+                <td align="center" id="rus">
                     russian
                 </td>
             </tr>
@@ -168,6 +179,15 @@ function Next()
             <input type="button" value="I know it" onclick="OnKnow()">
             <input type="button" value="Show translation" onclick="OnShow()">
             <input type="button" value="I don't know it" onclick="OnDoNotKnow()">
+        </center>
+        <br>
+        <br>
+        <center>
+            <input type="checkbox" id="sub_top_100" checked="true">Top 100</input>
+            <input type="checkbox" id="sub_top_400_things" checked="true">Top 400 things</input>
+            <br>
+            <input type="checkbox" id="sub_irregular_verbs" checked="true">Irregular verbs</input>
+            <input type="checkbox" id="sub_armor" checked="true">Armor</input>
         </center>
     </body>
 </html>

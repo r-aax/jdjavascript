@@ -190,3 +190,25 @@ JD.Content.ElementNValue = function(doc, id)
 
 //--------------------------------------------------------------------------------------------------
 
+// Is element (checkbox) checked.
+//
+// Arguments:
+//   doc - document,
+//   id - element identifier.
+//
+// Result:
+//   Check value.
+JD.Content.IsElementChecked = function(doc, id)
+{
+    var e = doc.getElementById(id);
+
+    if (e)
+    {
+        return e.checked;
+    }
+
+    return false;
+}
+
+//--------------------------------------------------------------------------------------------------
+

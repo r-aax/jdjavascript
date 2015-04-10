@@ -7,14 +7,36 @@
 //--------------------------------------------------------------------------------------------------
 
 // Create vocabulary.
-function Vocabulary()
+//
+// Arguments:
+//   doc - document.
+function Vocabulary(doc)
 {
     this.Subvocabularies = new Array();
 
-    this.Subvocabularies.push(CreateSubvocabulary_Top100());
-    this.Subvocabularies.push(CreateSubvocabulary_Top400Things());
-    this.Subvocabularies.push(CreateSubvocabulary_IrregularVerbs());
-    this.Subvocabularies.push(CreateSubvocabulary_Armor());
+    with (JD.Content)
+    {
+        if (JD.Content.IsElementChecked(doc, "sub_top_100"))
+        {
+            this.Subvocabularies.push(CreateSubvocabulary_Top100());
+        }
+
+        if (IsElementChecked(doc, "sub_top_400_things"))
+        {
+            this.Subvocabularies.push(CreateSubvocabulary_Top400Things());
+        }
+
+        if (IsElementChecked(doc, "sub_irregular_verbs"))
+        {
+            this.Subvocabularies.push(CreateSubvocabulary_IrregularVerbs());
+        }
+
+        if (IsElementChecked(doc, "sub_armor"))
+        {
+            this.Subvocabularies.push(CreateSubvocabulary_Armor());
+
+        }
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -35,6 +57,30 @@ Vocabulary.prototype.Count = function()
     }
 
     return n;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Get random word (record) from vocabulary.
+//
+// Result:
+//   Random record of words.
+Vocabulary.prototype.Random = function()
+{
+    var c = this.Count();
+    var n = JD.Utils.RandomN(0, c - 1);
+
+    for (var i = 0; i < this.Subvocabularies.length; i++)
+    {
+        if (n < this.Subvocabularies[i].length)
+        {
+            return this.Subvocabularies[i][n];
+        }
+
+        n -= this.Subvocabularies[i].length;
+    }
+
+    JD.Utils.InternalError();
 }
 
 //--------------------------------------------------------------------------------------------------

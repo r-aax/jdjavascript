@@ -29,6 +29,14 @@ JD.Utils.Check = function(cond, str)
 
 //--------------------------------------------------------------------------------------------------
 
+// Internal error.
+JD.Utils.InternalError = function()
+{
+    this.Check(false, "internal error");
+}
+
+//--------------------------------------------------------------------------------------------------
+
 // Checker for not implemented functional.
 JD.Utils.NotImplemented = function()
 {
