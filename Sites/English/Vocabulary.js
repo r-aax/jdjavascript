@@ -26,6 +26,11 @@ function Vocabulary(doc)
             this.Subvocabularies.push(CreateSubvocabulary_Top400Things());
         }
 
+        if (IsElementChecked(doc, "sub_top_100_qualities"))
+        {
+            this.Subvocabularies.push(CreateSubvocabulary_Top100Qualities());
+        }
+
         if (IsElementChecked(doc, "sub_irregular_verbs"))
         {
             this.Subvocabularies.push(CreateSubvocabulary_IrregularVerbs());
