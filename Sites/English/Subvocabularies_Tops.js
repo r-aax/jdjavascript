@@ -1,4 +1,4 @@
-// Subvocabularies.js - list of subvocabularies.
+// Subvocabularies_Tops.js - list of subvocabularies (top words).
 //
 // Author: Alexey Rybakov
 
@@ -868,32 +868,6 @@ function CreateSubvocabulary_Top200Picturable()
 { E : "wing",     R : "крыло" },
 { E : "wire",     R : "провод" },
 { E : "worm",     R : "червь" }
-
-        ];
-}
-
-//--------------------------------------------------------------------------------------------------
-
-// Irregular verbs subvocabulary.
-//
-// Result:
-//   Created vocabulary.
-function CreateSubvocabulary_IrregularVerbs()
-{
-    return /* bracket must be on the same line */ [
-
-        ];
-}
-
-//--------------------------------------------------------------------------------------------------
-
-// Armor subvocabulary.
-//
-// Result:
-//   Created vocabulary.
-function CreateSubvocabulary_Armor()
-{
-    return /* bracket must be on the same line */ [
 
         ];
 }
