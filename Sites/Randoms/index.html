@@ -1,0 +1,63 @@
+<!--
+Randoms testing.
+
+Author: Alexey Rybakov
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Randoms</title>
+        <style>
+
+body
+{
+    font-family : Verdana
+}
+
+        </style>
+        <script src="../../JD/Utils.js"></script>
+        <script src="../../JD/Content.js"></script>
+        <script src="../../JD/Drawer.js"></script>
+        <script src="../../JD/Random.js"></script>
+        <script>
+
+<!--
+
+//--------------------------------------------------------------------------------------------------
+
+// Init.
+function Init()
+{
+    var dr = new Drawer("canvas", 1.0, 1.0, false, true);
+
+    dr.SetColor("red");
+
+    for (i = 0; i < 10000; i++)
+    {
+        x = JD.Random.Random01();
+        y = JD.Random.RandomA(Math.sqrt(x))
+
+        dr.DrawPoint(Math.sqrt(x), y, 1);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Load document.
+function OnLoad()
+{
+    Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+
+-->
+
+        </script>
+    </head>
+    <body onload="OnLoad()">
+        <canvas width="800" height="800" id="canvas" style="border : 1px  solid black"></canvas>
+    </body>
+</html>
+
