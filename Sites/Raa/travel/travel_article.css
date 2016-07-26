@@ -27,6 +27,12 @@ body
     font-family : verdana, sans-serif
 }
 
+/* All images. */
+img
+{
+	max-width : 800px;
+}
+
 /* Images. */
 img.default
 {

@@ -37,7 +37,7 @@ raa.Content.ClassStr = function(c)
 }
 
 
-// Вывод изображения данного клсса.
+// Вывод изображения данного класса.
 raa.Content.IMG = function(url, c)
 {
 	with (raa.Content)

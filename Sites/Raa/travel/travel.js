@@ -363,7 +363,9 @@ function create_menu()
                 ],
                 "spain.12/index.html"
             ),
-            new MenuItem("2012-11", "Германия", [new SubmenuItem("Мюнхен", "")], "munich.12/index.html")
+            new MenuItem("2012-11", "Германия", [new SubmenuItem("Мюнхен", "")], "munich.12/index.html"),
+			new MenuItem("2016-06", "Россия", [new SubmenuItem("Казань", "")], "kazan.16/index.html"),
+			new MenuItem("2016-06", "Германия", [new SubmenuItem("Франкфурт", "")], "frankfurt.16/index.html")
         ];
 
     return arr;
