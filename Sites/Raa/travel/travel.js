@@ -365,7 +365,17 @@ function create_menu()
             ),
             new MenuItem("2012-11", "Германия", [new SubmenuItem("Мюнхен", "")], "munich.12/index.html"),
 			new MenuItem("2016-06", "Россия", [new SubmenuItem("Казань", "")], "kazan.16/index.html"),
-			new MenuItem("2016-06", "Германия", [new SubmenuItem("Франкфурт", "")], "frankfurt.16/index.html")
+			new MenuItem("2016-06", "Германия", [new SubmenuItem("Франкфурт", "")], "frankfurt.16/index.html"),
+			new MenuItem
+			(
+				"2016-09", "Россия",
+				[
+					new SubmenuItem("Калининград", "kaliningrad"),
+					new SubmenuItem("Светлогорск", "svetlogorsk"),
+					new SubmenuItem("Зеленоградск", "zelenogradsk")
+				],
+				"kaliningrad.16/index.html"
+			)
         ];
 
     return arr;
