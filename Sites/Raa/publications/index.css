@@ -6,10 +6,10 @@
 
 body, table, tr, td
 {
-    color : #666666;
-    background-color : #eeeeee;
+    color : #333333;
+    background-color : #ffffff;
     font-family : Trebuchet MS, Verdana, Arial;
-    font-size : 10pt;
+    font-size : 11pt;
     margin : 0px 0px 0px 0px;
     padding : 0px 0px 0px 0px;
     border-spacing : 0px;
@@ -19,6 +19,11 @@ table
 {
     width : 100%;
     height : 100%;
+}
+
+li
+{
+	margin-top : 10px;
 }
 
 img
