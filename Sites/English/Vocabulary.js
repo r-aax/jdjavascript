@@ -44,8 +44,12 @@ function Vocabulary(doc)
         if (IsElementChecked(doc, "sub_armor"))
         {
             this.Subvocabularies.push(CreateSubvocabulary_Armor());
-
         }
+		
+		if (IsElementChecked(doc, "sub_rierson_critical_software"))
+		{
+			this.Subvocabularies.push(CreateSubvocabulary_RiersonCriticalSoftware());
+		}
     }
 }
 
