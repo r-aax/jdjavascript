@@ -195,9 +195,20 @@ cmp_str_f = function(str1, str2)
     return 0;
 }
 cmp_str_b = function(str1, str2) { return -cmp_str_f(str1, str2); }
+
+
+// Compares function, main parameter is date.
+//
+// Arguments:
+//   str1 - first string,
+//   str2 - second string.
+//
+// Result:
+//   true - if str1 > str2,
+//   false if str1 <= str2.
 cmp_xi_df = function(x1, x2)
 {
-    res = cmp_str_f(x1.Date.substr(0, 7), x2.Date.substr(0, 7));
+    res = cmp_str_f(x1.Date, x2.Date);
     if (res != 0)
     {
         return res;
@@ -206,13 +217,23 @@ cmp_xi_df = function(x1, x2)
 }
 cmp_xi_db = function(x1, x2)
 {
-    res = cmp_str_b(x1.Date.substr(0, 7), x2.Date.substr(0, 7));
+    res = cmp_str_b(x1.Date, x2.Date);
     if (res != 0)
     {
         return res;
     }
     return cmp_str_f(x1.Country + x1.Place, x2.Country + x2.Place);
 }
+
+// Compares function, main parameter is country.
+//
+// Arguments:
+//   str1 - first string,
+//   str2 - second string.
+//
+// Result:
+//   true - if str1 > str2,
+//   false if str1 <= str2.
 cmp_xi_cf = function(x1, x2)
 {
     res = cmp_str_f(x1.Country, x2.Country);
@@ -231,6 +252,16 @@ cmp_xi_cb = function(x1, x2)
     }
     return cmp_str_f(x1.Place + x1.Date, x2.Place + x2.Date);
 }
+
+// Compares function, main parameter is place.
+//
+// Arguments:
+//   str1 - first string,
+//   str2 - second string.
+//
+// Result:
+//   true - if str1 > str2,
+//   false if str1 <= str2.
 cmp_xi_pf = function(x1, x2)
 {
     res = cmp_str_f(x1.Place + x1.Country, x2.Place + x2.Country);
@@ -248,6 +279,51 @@ cmp_xi_pb = function(x1, x2)
         return res;
     }
     return cmp_str_f(x1.Date, x2.Date);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if it is sort by date function.
+//
+// Arguments:
+//   fun - sort function.
+//
+// Result:
+//   true - if it is sort by date function,
+//   false - otherwise.
+function is_cmp_date(fun)
+{
+	return (fun == cmp_xi_df) || (fun == cmp_xi_db);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if it is sort by country function.
+//
+// Arguments:
+//   fun - sort function.
+//
+// Result:
+//   true - if it is sort by country function,
+//   false - otherwise.
+function is_cmp_country(fun)
+{
+	return (fun == cmp_xi_cf) || (fun == cmp_xi_cb);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Check if it is sort by place function.
+//
+// Arguments:
+//   fun - sort function.
+//
+// Result:
+//   true - if it is sort by place function,
+//   false - otherwise.
+function is_cmp_place(fun)
+{
+	return (fun == cmp_xi_pf) || (fun == cmp_xi_pb);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -484,37 +560,52 @@ function year(date)
 function xi_html(xi, sort_function)
 {
     html = "<a href=\"" + xi.DocLink + "\" target=\"iframe\">";
-    if ((sort_function == cmp_xi_df) || (sort_function == cmp_xi_db))
+	
+    if (is_cmp_date(sort_function))
     {
         return html + "<b><nobr>" + month(xi.Date) + "</nobr></b>: " + xi.Country + " - " + xi.Place + "</a>";
     }
-    if ((sort_function == cmp_xi_cf) || (sort_function == cmp_xi_cb))
+	
+    if (is_cmp_country(sort_function))
     {
         return html + xi.Place + " (<nobr>" + month(xi.Date) + " " + year(xi.Date) + "</nobr>)</a>";
     }
+	
     return "<li>error: unknown sort_function</li>";
 }
 
 //--------------------------------------------------------------------------------------------------
 
-// Place sort flat menu item HTML.
+// HTML for extended menu item.
+// HTML for place menu item is generated (with or without country).
 //
 // Arguments:
 //   xi - menu item,
-//   only_date - only date flag.
+//   is_country - with country,
+//   is_only date - only date used.
 //
 // Result:
-//   HTML.
-function xi_html_p(xi, only_date)
+//   HTML code.
+function xi_html_p(xi, is_country, is_only_date)
 {
-    // NB!
-    loc_html = "<a href=\"" + xi.DocLink + "\" target=\"iframe\">";
-    if (!only_date)
-    {
-        loc_html += "<b>" + xi.Place + "</b> (" + xi.Country + ") ";
-    }
-    loc_html += "(<nobr>" + xi.Date + "</nobr>)</a>";
-    return loc_html;
+	var h;
+	
+	h = "<a href=\"" + xi.DocLink + "\" target=\"iframe\">";
+	
+	if (!is_only_date)
+	{
+		h += "<b>" + xi.Place + "</b> ";
+		
+		if (is_country)
+		{
+			h += " (" + xi.Country + ") ";
+		}
+	}
+	
+	// Date is always used.
+	h += "(<nobr>" + xi.Date + "</nobr>)</a>";
+	
+	return h;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -532,7 +623,7 @@ function draw_menu(sort_function)
 
     html = "<ul>";
 
-    if ((sort_function == cmp_xi_pf) || (sort_function == cmp_xi_pb))
+    if (is_cmp_place(sort_function))
     {
         html += "<li>";
         root_place = "";
@@ -546,19 +637,19 @@ function draw_menu(sort_function)
                 {
                     html += "</li><li>";
                 }
-                html_m = html + cur_place + " " + xi_html_p(xmenu[i], true);
-                html += xi_html_p(xmenu[i], false);
+                html_m = html + cur_place + " " + xi_html_p(xmenu[i], true, true);
+                html += xi_html_p(xmenu[i], true, false);
                 root_place = cur_place;
             }
             else
             {
                 html = html_m;
-                html += " " + xi_html_p(xmenu[i], true);
+                html += " " + xi_html_p(xmenu[i], true, true);
             }
         }
         html += "</li>";
     }
-    else if ((sort_function == cmp_xi_df) || (sort_function == cmp_xi_db))
+    else if (is_cmp_date(sort_function))
     {
         root_year = "";
         cur_year = "";
