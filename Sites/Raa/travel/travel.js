@@ -440,7 +440,15 @@ function create_menu()
                 "spain.12/index.html"
             ),
             new MenuItem("2012-11", "Германия", [new SubmenuItem("Мюнхен", "")], "munich.12/index.html"),
-			new MenuItem("2016-06", "Россия", [new SubmenuItem("Казань", "")], "kazan.16/index.html"),
+			new MenuItem
+			(
+				"2016-06", "Россия",
+				[
+					new SubmenuItem("Казань", "kazan"),
+					new SubmenuItem("Иннополис", "innopolis")
+				],
+				"kazan.16/index.html"
+			),
 			new MenuItem("2016-06", "Германия", [new SubmenuItem("Франкфурт", "")], "frankfurt.16/index.html"),
 			new MenuItem
 			(
@@ -581,25 +589,34 @@ function xi_html(xi, sort_function)
 //
 // Arguments:
 //   xi - menu item,
-//   is_country - with country,
-//   is_only date - only date used.
+//   p - write place mode: 0 - no place, 1 - common text, 2 - bold text,
+//   is_c - write country.
 //
 // Result:
 //   HTML code.
-function xi_html_p(xi, is_country, is_only_date)
+function xi_html_pcd(xi, p, is_c)
 {
 	var h;
 	
 	h = "<a href=\"" + xi.DocLink + "\" target=\"iframe\">";
 	
-	if (!is_only_date)
+	switch (p)
 	{
-		h += "<b>" + xi.Place + "</b> ";
-		
-		if (is_country)
-		{
-			h += " (" + xi.Country + ") ";
-		}
+		case 0:
+			break;
+		case 1:
+			h += xi.Place;
+			break;
+		case 2:
+			h += "<b>" + xi.Place + "</b> ";
+			break;
+		default:
+			alert("error");
+	}
+	
+	if (is_c)
+	{
+		h += " (" + xi.Country + ")";
 	}
 	
 	// Date is always used.
@@ -620,6 +637,11 @@ function draw_menu(sort_function)
     xmenu = flat_menu(menu);
     xmenu.sort(sort_function);
     count_inner_elements(xmenu);
+	
+	if (xmenu.length == 0)
+	{
+		alert("error");
+	}
 
     html = "<ul>";
 
@@ -628,27 +650,88 @@ function draw_menu(sort_function)
         html += "<li>";
         root_place = "";
         cur_place = "";
+		
         for (i = 0; i < xmenu.length; i++)
         {
-            cur_place = "<b>" + xmenu[i].Place + "</b> (" + xmenu[i].Country + ")";
-            if (cur_place != root_place)
-            {
-                if (i != 0)
-                {
-                    html += "</li><li>";
-                }
-                html_m = html + cur_place + " " + xi_html_p(xmenu[i], true, true);
-                html += xi_html_p(xmenu[i], true, false);
-                root_place = cur_place;
-            }
-            else
-            {
-                html = html_m;
-                html += " " + xi_html_p(xmenu[i], true, true);
-            }
+			xi = xmenu[i];
+            cur_place = "<b>" + xi.Place + "</b> (" + xi.Country + ")";
+			
+			if (cur_place == root_place)
+			{
+				// The same place.
+				// Bring  html_m to the front and add current date.
+				
+				html = html_m;
+				html += " " + xi_html_pcd(xi, 0, false);
+			}
+			else
+			{
+				// New item.
+				
+				if (i != 0)
+				{
+					html += "</li><li>";
+				}
+				
+				html_m = html + cur_place + " " + xi_html_pcd(xi, 0, false);
+				html += xi_html_pcd(xi, 2, true);
+				root_place = cur_place;
+			}
         }
+		
         html += "</li>";
     }
+	else if (is_cmp_country(sort_function))
+	{
+        root_country = "";
+        cur_country = "";
+		root_place = "";
+		cur_place = "";
+		
+        for (i = 0; i < xmenu.length; i++)
+        {
+			xi = xmenu[i];
+            cur_country = xi.Country;
+			cur_place = xi.Place;
+			
+            if (root_country != cur_country)
+            {
+                if (root_country != "")
+                {
+                    html += "</ul><br></li>";
+                }
+				
+                html += "<li><b>" + cur_country + "</b><br><br><ul><li>";
+				root_place = "";
+            }
+			
+			if (cur_place == root_place)
+			{
+				// The same place.
+				// Bring  html_m to the front and add current date.
+				
+				html = html_m;
+				html += " " + xi_html_pcd(xi, 0, false);
+			}
+			else
+			{
+				// New item.
+				
+				if (root_place != "")
+				{
+					html += "</li><li>";
+				}
+				
+				html_m = html + cur_place + " " + xi_html_pcd(xi, 0, false);
+				html += xi_html_pcd(xi, 1, false);
+				root_place = cur_place;
+			}
+			
+            root_country = cur_country;
+        }
+		
+        html += "</li></ul></li>";	
+	}
     else if (is_cmp_date(sort_function))
     {
         root_year = "";
@@ -677,29 +760,7 @@ function draw_menu(sort_function)
     }
     else
     {
-        root_country = "";
-        cur_country = "";
-        for (i = 0; i < xmenu.length; i++)
-        {
-            cur_country = xmenu[i].Country;
-            if (root_country != cur_country)
-            {
-                if (root_country != "")
-                {
-                    html += "</ul><br></li>";
-                }
-                html += "<li><b>" + cur_country + "</b><br><br><ul>";
-            }
-            html += "<li>" + xi_html(xmenu[i], sort_function) + "</li>";
-            if (root_country != cur_country)
-            {
-                root_country = cur_country;
-            }
-        }
-        if (root_country != "")
-        {
-            html += "</ul></li>";
-        }
+		alert("error");
     }
 
     html += "</ul>"
