@@ -77,7 +77,7 @@ function CreateSubvocabulary_RiersonCriticalSoftware()
 { E : "amplification",   R : "расширение" },
 { E : "concise",         R : "краткий" },
 { E : "convey",          R : "подавать" },
-{ E : "deficiency",      R : "нехватка" }
+{ E : "deficiency",      R : "нехватка" },
 //
 { E : "quantifiable", R : "количественно измеримый" },
 { E : "viable",       R : "жизнеспособный" },
@@ -88,7 +88,7 @@ function CreateSubvocabulary_RiersonCriticalSoftware()
 { E : "rely upon",    R : "надеяться на" },
 { E : "integrity",    R : "полнота, целость" },
 { E : "malfunction",  R : "неверное срабатывание" },
-{ E : "mislead",      R : "вводить в заблуждение" }
+{ E : "mislead",      R : "вводить в заблуждение" },
 //
 { E : "hardover",      R : "резкий отказ" },
 { E : "dissimilarity", R : "отличие" },
@@ -99,7 +99,7 @@ function CreateSubvocabulary_RiersonCriticalSoftware()
 { E : "adversely",     R : "неблагоприятно" },
 { E : "circuit",       R : "обходить, вращаться" },
 { E : "annunciation",  R : "извещение" },
-{ E : "trustworthy",   R : "надежный" }
+{ E : "trustworthy",   R : "надежный" },
 //
 { E : "vulnerability", R : "уязвимость" },
 { E : "diversity",     R : "разнообразие" },
@@ -110,18 +110,18 @@ function CreateSubvocabulary_RiersonCriticalSoftware()
 { E : "prior to",      R : "до" },
 { E : "ongoing",       R : "непрерывное движение" },
 { E : "intentionally", R : "умышленно" },
-{ E : "shortcoming",   R : "недостаток" }
+{ E : "shortcoming",   R : "недостаток" },
 //
-{ E : "rationale", R : "разумное объяснение" },
+{ E : "rationale",     R : "разумное объяснение" },
 { E : "inadvertently", R : "непреднамеренно" },
-{ E : "jogger", R : "сталкивающий механизм" },
-{ E : "babbler", R : "болтун" },
-{ E : "slack", R : "послабление" },
-{ E : "facility", R : "оборудование, приспособления" },
-{ E : "undervalue", R : "недооценить" },
-{ E : "underutilize", R : "недоиспользовать" },
-{ E : "evaluate", R : "оценивать" },
-{ E : "slip", R : "сползать" },
+{ E : "jogger",        R : "сталкивающий механизм" },
+{ E : "babbler",       R : "болтун" },
+{ E : "slack",         R : "послабление" },
+{ E : "facility",      R : "оборудование, приспособления" },
+{ E : "undervalue",    R : "недооценить" },
+{ E : "underutilize",  R : "недоиспользовать" },
+{ E : "evaluate",      R : "оценивать" },
+{ E : "slip",          R : "сползать" },
 
 // tail
 { E : "consume",         R : "истреблять" },
