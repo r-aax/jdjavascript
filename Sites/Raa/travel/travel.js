@@ -460,7 +460,8 @@ function create_menu()
 				],
 				"kaliningrad.16/index.html"
 			),
-            new MenuItem("2016-11", "Россия", [new SubmenuItem("Переславль-Залесский", "pereslavl-zalesskiy")], "singleshot/index.html")
+            new MenuItem("2016-11", "Россия", [new SubmenuItem("Переславль-Залесский", "pereslavl-zalesskiy")], "singleshot/index.html"),
+			new MenuItem("2017-10", "Россия", [new SubmenuItem("Саров", "")], "sarov.17/index.html")
         ];
 
     return arr;
