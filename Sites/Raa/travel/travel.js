@@ -494,7 +494,7 @@ function create_menu()
 				],
 				"kaliningrad.16/index.html"
 			),
-            new MenuItem("2016-11", "Россия", [new SubmenuItem("Переславль-Залесский", "pereslavl-zalesskiy")], "singleshot/index.html"),
+            new MenuItem("2016-11", "Россия", [new SubmenuItem("Переславль-Залесский", "pereslavl_zalesskiy")], "singleshot/index.html"),
 			new MenuItem
 			(
 				"2017-07", "Испания",
