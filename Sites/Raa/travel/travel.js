@@ -466,7 +466,7 @@ function create_menu()
             new MenuItem("2012-11", "Германия", [new SubmenuItem("Мюнхен", "")], "munich.12/index.html"),
 			new MenuItem
 			(
-				"2015-07", "Испани",
+				"2015-07", "Испания",
 				[
 					new SubmenuItem("Салоу", "salou"),
 					new SubmenuItem("Барселона", "barcelona"),
