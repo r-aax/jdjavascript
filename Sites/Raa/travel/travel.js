@@ -67,12 +67,31 @@ function imgs(dir, ind_from, ind_to, ext)
 //   name - anchor name,
 //   str - header string,
 //   ind_from - images start index,
-//   ind_to - images end index.
+//   ind_to - images end index,
+//   ext - images extension.
 function a_imgs(name, str, ind_from, ind_to, ext)
 {
     a(name);
     p(str, "h2");
     imgs(name, ind_from, ind_to, ext)
+}
+
+//--------------------------------------------------------------------------------------------------
+
+// Block with anchor and images from given directory.
+//
+// Arguments:
+//   name - anchor name,
+//   dir - images directory,
+//   str - header string,
+//   ind_from - images start index,
+//   ind_to - images end index,
+//   ext - images extension.
+function a_imgs2(name, dir, str, ind_from, ind_to, ext)
+{
+	a(name);
+	p(str, "h2");
+	imgs(dir, ind_from, ind_to, ext);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -445,6 +464,16 @@ function create_menu()
                 "spain.12/index.html"
             ),
             new MenuItem("2012-11", "Германия", [new SubmenuItem("Мюнхен", "")], "munich.12/index.html"),
+			new MenuItem
+			(
+				"2015-07", "Испани",
+				[
+					new SubmenuItem("Салоу", "salou"),
+					new SubmenuItem("Барселона", "barcelona"),
+					new SubmenuItem("Порт Авентура", "port_aventura")
+				],
+				"spain.15/index.html"
+			),
 			new MenuItem
 			(
 				"2016-06", "Россия",
