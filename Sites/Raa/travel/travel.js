@@ -708,6 +708,7 @@ function draw_menu(sort_function)
 				
 				html = html_m;
 				html += " " + xi_html_pcd(xi, 0, false);
+				html_m = html
 			}
 			else
 			{
