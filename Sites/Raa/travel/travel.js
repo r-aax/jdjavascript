@@ -19,12 +19,17 @@ function quote(text)
 //--------------------------------------------------------------------------------------------------
 
 // Put image to document.
-function img(url)
+function img(url, c)
 {
+	if (c == undefined)
+	{
+		c = "default";
+	}
+	
     with (raa.Content)
     {
         BR();
-        IMG(url, "default");
+        IMG(url, c);
         BR();
     }
 }
@@ -461,6 +466,16 @@ function create_menu()
 				"kaliningrad.16/index.html"
 			),
             new MenuItem("2016-11", "Россия", [new SubmenuItem("Переславль-Залесский", "pereslavl-zalesskiy")], "singleshot/index.html"),
+			new MenuItem
+			(
+				"2017-07", "Испания",
+				[
+					new SubmenuItem("Салоу", "salou"),
+					new SubmenuItem("Таррагона", "tarragona"),
+					new SubmenuItem("Порт Авентура", "port_aventura")
+				],
+				"spain.17/index.html"
+			),
 			new MenuItem("2017-10", "Россия", [new SubmenuItem("Саров", "")], "sarov.17/index.html")
         ];
 

@@ -40,6 +40,12 @@ img.default
     margin : 0 auto;
     border : thin solid silver
 }
+img.no_border
+{
+	display : block;
+	margin : 0 auto;
+	border : 0
+}
 
 /* Paragraphs. */
 p.h1
