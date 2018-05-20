@@ -505,7 +505,8 @@ function create_menu()
 				],
 				"spain.17/index.html"
 			),
-			new MenuItem("2017-10", "Россия", [new SubmenuItem("Саров", "")], "sarov.17/index.html")
+			new MenuItem("2017-10", "Россия", [new SubmenuItem("Саров", "")], "sarov.17/index.html"),
+			new MenuItem("2018-05", "Италия", [new SubmenuItem("Рим", "")], "rome.18/index.html")
         ];
 
     return arr;
