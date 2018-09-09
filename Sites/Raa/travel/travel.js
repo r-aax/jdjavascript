@@ -662,7 +662,7 @@ function xi_html_pcd(xi, p, is_c)
 {
 	var h;
 	
-	h = "<a href=\"" + xi.DocLink + "\" target=\"iframe\">";
+	h = "";
 	
 	switch (p)
 	{
@@ -684,7 +684,13 @@ function xi_html_pcd(xi, p, is_c)
 	}
 	
 	// Date is always used.
-	h += "(<nobr>" + xi.Date + "</nobr>)</a>";
+	
+	if (p != 0)
+	{
+		h += " ";
+	}
+	
+	h += "<a href=\"" + xi.DocLink + "\" target=\"iframe\">(<nobr>" + xi.Date + "</nobr>)</a>";
 	
 	return h;
 }
@@ -711,40 +717,44 @@ function draw_menu(sort_function)
 
     if (is_cmp_place(sort_function))
     {
-        html += "<li>";
-        root_place = "";
-        cur_place = "";
+		// Initial.
+		i = 0;
 		
-        for (i = 0; i < xmenu.length; i++)
-        {
+		while (i < xmenu.length)
+		{
 			xi = xmenu[i];
-            cur_place = "<b>" + xi.Place + "</b> (" + xi.Country + ")";
-			
-			if (cur_place == root_place)
+
+			// First find all dates of this place.
+
+			j = i + 1;
+
+			while (j < xmenu.length)
 			{
-				// The same place.
-				// Bring  html_m to the front and add current date.
-				
-				html = html_m;
-				html += " " + xi_html_pcd(xi, 0, false);
-				html_m = html
-			}
-			else
-			{
-				// New item.
-				
-				if (i != 0)
+				xj = xmenu[j];
+
+				if ((xi.Place + xi.Country) != (xj.Place + xj.Country))
 				{
-					html += "</li><li>";
+					break;
 				}
 				
-				html_m = html + cur_place + " " + xi_html_pcd(xi, 0, false);
-				html += xi_html_pcd(xi, 2, true);
-				root_place = cur_place;
+				j++;
 			}
-        }
-		
-        html += "</li>";
+			
+			// Now process all items from i to j - 1.
+			
+			html += "<li>";
+			html += xi_html_pcd(xi, 2, true);
+			i++;
+			
+			while (i < j)
+			{
+				xi = xmenu[i]
+				html += " " + xi_html_pcd(xi, 0, false);
+				i++;
+			}
+			
+			html += "</li>";
+		}
     }
 	else if (is_cmp_country(sort_function))
 	{
