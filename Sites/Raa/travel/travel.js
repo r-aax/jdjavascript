@@ -587,22 +587,65 @@ function count_inner_elements(xmenu)
 //   Month string.
 function month(date)
 {
+	var str;
+	
+	str = "";
+	
     switch (date.substr(5, 2))
     {
-        case "01": return "янв";
-        case "02": return "фев";
-        case "03": return "мар";
-        case "04": return "апр";
-        case "05": return "май";
-        case "06": return "июн";
-        case "07": return "июл";
-        case "08": return "авг";
-        case "09": return "сен";
-        case "10": return "окт";
-        case "11": return "ноя";
-        case "12": return "дек";
-        default: alert("error");
+        case "01":
+			str = "янв";
+			break;
+
+        case "02":
+			str = "фев";
+			break;
+
+        case "03":
+			str = "мар";
+			break;
+
+        case "04":
+			str = "апр";
+			break;
+
+        case "05":
+			str = "май";
+			break;
+
+        case "06":
+			str = "июн";
+			break;
+
+        case "07":
+			str = "июл";
+			break;
+
+        case "08":
+			str = "авг";
+			break;
+
+        case "09":
+			str = "сен";
+			break;
+
+        case "10":
+			str = "окт";
+			break;
+
+        case "11":
+			str = "ноя";
+			break;
+
+        case "12":
+			str = "дек";
+			break;
+
+        default:
+			alert("error");
     }
+	
+	return "<tt>" + str + "</tt>";
 }
 
 //--------------------------------------------------------------------------------------------------
