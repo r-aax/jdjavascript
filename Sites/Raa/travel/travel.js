@@ -758,54 +758,71 @@ function draw_menu(sort_function)
     }
 	else if (is_cmp_country(sort_function))
 	{
-        root_country = "";
-        cur_country = "";
-		root_place = "";
-		cur_place = "";
-		
-        for (i = 0; i < xmenu.length; i++)
-        {
+		// Initial.
+		i = 0;
+
+		while (i < xmenu.length)
+		{
 			xi = xmenu[i];
-            cur_country = xi.Country;
-			cur_place = xi.Place;
 			
-            if (root_country != cur_country)
-            {
-                if (root_country != "")
-                {
-                    html += "</ul><br></li>";
-                }
-				
-                html += "<li><b>" + cur_country + "</b><br><br><ul><li>";
-				root_place = "";
-            }
+			// First find all items of this country.
 			
-			if (cur_place == root_place)
+			k = i + 1;
+			
+			while (k < xmenu.length)
 			{
-				// The same place.
-				// Bring  html_m to the front and add current date.
+				xk = xmenu[k];
 				
-				html = html_m;
-				html += " " + xi_html_pcd(xi, 0, false);
-			}
-			else
-			{
-				// New item.
-				
-				if (root_place != "")
+				if (xk.Country != xi.Country)
 				{
-					html += "</li><li>";
+					break;
 				}
 				
-				html_m = html + cur_place + " " + xi_html_pcd(xi, 0, false);
-				html += xi_html_pcd(xi, 1, false);
-				root_place = cur_place;
+				k++;
 			}
 			
-            root_country = cur_country;
-        }
-		
-        html += "</li></ul></li>";	
+			// From i to k - 1 are items from one country.
+			
+			html += "<li><b>" + xi.Country + "</b><br><br><ul>";
+			
+			while (i < k)
+			{
+				xi = xmenu[i];
+				
+				// Find all items from this place.
+				
+				j = i + 1;
+				
+				while (j < k)
+				{
+					xj = xmenu[j];
+					
+					if (xj.Place != xi.Place)
+					{
+						break;
+					}
+					
+					j++;
+				}
+				
+				// Print places from i to j - 1.
+				
+				html += "<li>";
+				html += xi_html_pcd(xi, 1, true);
+				i++;
+			
+				while (i < j)
+				{
+					xi = xmenu[i]
+					html += " " + xi_html_pcd(xi, 0, false);
+					i++;
+				}
+			
+				html += "</li>";
+			}
+			
+			html += "</ul><br></li>";
+		}
 	}
     else if (is_cmp_date(sort_function))
     {
