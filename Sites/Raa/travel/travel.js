@@ -526,7 +526,8 @@ function create_menu()
 				],
 				"italy.18/index.html"
 			),
-            new MenuItem("2018-12", "Россия", [new SubmenuItem("Переславль-Залесский", "")], "pereslavl-zalesskiy.18/index.html")
+            new MenuItem("2018-12", "Россия", [new SubmenuItem("Переславль-Залесский", "")], "pereslavl-zalesskiy.18/index.html"),
+			new MenuItem("2019-01", "ОАЭ", [new SubmenuItem("Рас-эль-Хайма", "")], "uae.18/index.html")
         ];
 
     return arr;
