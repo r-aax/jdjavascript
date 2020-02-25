@@ -21,11 +21,11 @@ function quote(text)
 // Put image to document.
 function img(url, c)
 {
-	if (c == undefined)
-	{
-		c = "default";
-	}
-	
+    if (c == undefined)
+    {
+        c = "default";
+    }
+
     with (raa.Content)
     {
         BR();
@@ -89,9 +89,9 @@ function a_imgs(name, str, ind_from, ind_to, ext)
 //   ext - images extension.
 function a_imgs2(name, dir, str, ind_from, ind_to, ext)
 {
-	a(name);
-	p(str, "h2");
-	imgs(dir, ind_from, ind_to, ext);
+    a(name);
+    p(str, "h2");
+    imgs(dir, ind_from, ind_to, ext);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -317,7 +317,7 @@ cmp_xi_pb = function(x1, x2)
 //   false - otherwise.
 function is_cmp_date(fun)
 {
-	return (fun == cmp_xi_df) || (fun == cmp_xi_db);
+    return (fun == cmp_xi_df) || (fun == cmp_xi_db);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -332,7 +332,7 @@ function is_cmp_date(fun)
 //   false - otherwise.
 function is_cmp_country(fun)
 {
-	return (fun == cmp_xi_cf) || (fun == cmp_xi_cb);
+    return (fun == cmp_xi_cf) || (fun == cmp_xi_cb);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -347,7 +347,7 @@ function is_cmp_country(fun)
 //   false - otherwise.
 function is_cmp_place(fun)
 {
-	return (fun == cmp_xi_pf) || (fun == cmp_xi_pb);
+    return (fun == cmp_xi_pf) || (fun == cmp_xi_pb);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -464,70 +464,71 @@ function create_menu()
                 "spain.12/index.html"
             ),
             new MenuItem("2012-11", "Германия", [new SubmenuItem("Мюнхен", "")], "munich.12/index.html"),
-			new MenuItem
-			(
-				"2015-07", "Испания",
-				[
-					new SubmenuItem("Салоу", "salou"),
-					new SubmenuItem("Барселона", "barcelona"),
-					new SubmenuItem("Порт Авентура", "port_aventura")
-				],
-				"spain.15/index.html"
-			),
-			new MenuItem
-			(
-				"2016-06", "Россия",
-				[
-					new SubmenuItem("Казань", "kazan"),
-					new SubmenuItem("Иннополис", "innopolis")
-				],
-				"kazan.16/index.html"
-			),
-			new MenuItem("2016-06", "Германия", [new SubmenuItem("Франкфурт", "")], "frankfurt.16/index.html"),
-			new MenuItem
-			(
-				"2016-09", "Россия",
-				[
-					new SubmenuItem("Калининград", "kaliningrad"),
-					new SubmenuItem("Светлогорск", "svetlogorsk"),
-					new SubmenuItem("Зеленоградск", "zelenogradsk")
-				],
-				"kaliningrad.16/index.html"
-			),
+            new MenuItem
+            (
+                "2015-07", "Испания",
+                [
+                    new SubmenuItem("Салоу", "salou"),
+                    new SubmenuItem("Барселона", "barcelona"),
+                    new SubmenuItem("Порт Авентура", "port_aventura")
+                ],
+                "spain.15/index.html"
+            ),
+            new MenuItem
+            (
+                "2016-06", "Россия",
+                [
+                    new SubmenuItem("Казань", "kazan"),
+                    new SubmenuItem("Иннополис", "innopolis")
+                ],
+                "kazan.16/index.html"
+            ),
+            new MenuItem("2016-06", "Германия", [new SubmenuItem("Франкфурт", "")], "frankfurt.16/index.html"),
+            new MenuItem
+            (
+                "2016-09", "Россия",
+                [
+                    new SubmenuItem("Калининград", "kaliningrad"),
+                    new SubmenuItem("Светлогорск", "svetlogorsk"),
+                    new SubmenuItem("Зеленоградск", "zelenogradsk")
+                ],
+                "kaliningrad.16/index.html"
+            ),
             new MenuItem("2016-11", "Россия", [new SubmenuItem("Переславль-Залесский", "pereslavl_zalesskiy")], "singleshot/index.html"),
-			new MenuItem
-			(
-				"2017-07", "Испания",
-				[
-					new SubmenuItem("Салоу", "salou"),
-					new SubmenuItem("Таррагона", "tarragona"),
-					new SubmenuItem("Порт Авентура", "port_aventura")
-				],
-				"spain.17/index.html"
-			),
-			new MenuItem("2017-10", "Россия", [new SubmenuItem("Саров", "")], "sarov.17/index.html"),
-			new MenuItem("2018-05", "Италия", [new SubmenuItem("Рим", "rome")], "rome.18/index.html"),
+            new MenuItem
+            (
+                "2017-07", "Испания",
+                [
+                    new SubmenuItem("Салоу", "salou"),
+                    new SubmenuItem("Таррагона", "tarragona"),
+                    new SubmenuItem("Порт Авентура", "port_aventura")
+                ],
+                "spain.17/index.html"
+            ),
+            new MenuItem("2017-10", "Россия", [new SubmenuItem("Саров", "")], "sarov.17/index.html"),
+            new MenuItem("2018-05", "Италия", [new SubmenuItem("Рим", "rome")], "rome.18/index.html"),
             new MenuItem("2018-05", "Ватикан", [new SubmenuItem("Ватикан", "vatican")], "rome.18/index.html"),
-			new MenuItem
-			(
-				"2018-06", "Германия",
-				[
-					new SubmenuItem("Франкфурт", "frankfurt"),
-					new SubmenuItem("Мюнхен", "munich")
-				],
-				"germany.18/index.html"
-			),
-			new MenuItem
-			(
-				"2018-08", "Италия",
-				[
-					new SubmenuItem("Рим", "rome"),
-					new SubmenuItem("Флоренция", "florence")
-				],
-				"italy.18/index.html"
-			),
+            new MenuItem
+            (
+                "2018-06", "Германия",
+                [
+                    new SubmenuItem("Франкфурт", "frankfurt"),
+                    new SubmenuItem("Мюнхен", "munich")
+                ],
+                "germany.18/index.html"
+            ),
+            new MenuItem
+            (
+                "2018-08", "Италия",
+                [
+                    new SubmenuItem("Рим", "rome"),
+                    new SubmenuItem("Флоренция", "florence")
+                ],
+                "italy.18/index.html"
+            ),
             new MenuItem("2018-12", "Россия", [new SubmenuItem("Переславль-Залесский", "")], "pereslavl-zalesskiy.18/index.html"),
-			new MenuItem("2019-01", "ОАЭ", [new SubmenuItem("Рас-эль-Хайма", "")], "uae.18/index.html")
+            new MenuItem("2019-01", "ОАЭ", [new SubmenuItem("Рас-эль-Хайма", "")], "uae.19/index.html"),
+            new MenuItem("2020-02", "Россия", [new SubmenuItem("Большой Камень", "")], "short/bolshoy_kamen.0220/index.html")
         ];
 
     return arr;
@@ -590,65 +591,65 @@ function count_inner_elements(xmenu)
 //   Month string.
 function month(date)
 {
-	var str;
-	
-	str = "";
-	
+    var str;
+    
+    str = "";
+    
     switch (date.substr(5, 2))
     {
         case "01":
-			str = "янв";
-			break;
+            str = "янв";
+            break;
 
         case "02":
-			str = "фев";
-			break;
+            str = "фев";
+            break;
 
         case "03":
-			str = "мар";
-			break;
+            str = "мар";
+            break;
 
         case "04":
-			str = "апр";
-			break;
+            str = "апр";
+            break;
 
         case "05":
-			str = "май";
-			break;
+            str = "май";
+            break;
 
         case "06":
-			str = "июн";
-			break;
+            str = "июн";
+            break;
 
         case "07":
-			str = "июл";
-			break;
+            str = "июл";
+            break;
 
         case "08":
-			str = "авг";
-			break;
+            str = "авг";
+            break;
 
         case "09":
-			str = "сен";
-			break;
+            str = "сен";
+            break;
 
         case "10":
-			str = "окт";
-			break;
+            str = "окт";
+            break;
 
         case "11":
-			str = "ноя";
-			break;
+            str = "ноя";
+            break;
 
         case "12":
-			str = "дек";
-			break;
+            str = "дек";
+            break;
 
         default:
-			alert("error");
+            alert("error");
     }
-	
-	return "<tt>" + str + "</tt>";
+    
+    return "<tt>" + str + "</tt>";
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -678,17 +679,17 @@ function year(date)
 function xi_html(xi, sort_function)
 {
     html = "<a href=\"" + xi.DocLink + "\" target=\"iframe\">";
-	
+    
     if (is_cmp_date(sort_function))
     {
         return html + "<b><nobr>" + month(xi.Date) + "</nobr></b>: " + xi.Country + " - " + xi.Place + "</a>";
     }
-	
+    
     if (is_cmp_country(sort_function))
     {
         return html + xi.Place + " (<nobr>" + month(xi.Date) + " " + year(xi.Date) + "</nobr>)</a>";
     }
-	
+    
     return "<li>error: unknown sort_function</li>";
 }
 
@@ -706,39 +707,39 @@ function xi_html(xi, sort_function)
 //   HTML code.
 function xi_html_pcd(xi, p, is_c)
 {
-	var h;
-	
-	h = "";
-	
-	switch (p)
-	{
-		case 0:
-			break;
-		case 1:
-			h += xi.Place;
-			break;
-		case 2:
-			h += "<b>" + xi.Place + "</b> ";
-			break;
-		default:
-			alert("error");
-	}
-	
-	if (is_c)
-	{
-		h += " (" + xi.Country + ")";
-	}
-	
-	// Date is always used.
-	
-	if (p != 0)
-	{
-		h += " ";
-	}
-	
-	h += "<a href=\"" + xi.DocLink + "\" target=\"iframe\">(<nobr>" + xi.Date + "</nobr>)</a>";
-	
-	return h;
+    var h;
+    
+    h = "";
+    
+    switch (p)
+    {
+        case 0:
+            break;
+        case 1:
+            h += xi.Place;
+            break;
+        case 2:
+            h += "<b>" + xi.Place + "</b> ";
+            break;
+        default:
+            alert("error");
+    }
+    
+    if (is_c)
+    {
+        h += " (" + xi.Country + ")";
+    }
+    
+    // Date is always used.
+    
+    if (p != 0)
+    {
+        h += " ";
+    }
+    
+    h += "<a href=\"" + xi.DocLink + "\" target=\"iframe\">(<nobr>" + xi.Date + "</nobr>)</a>";
+    
+    return h;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -753,123 +754,123 @@ function draw_menu(sort_function)
     xmenu = flat_menu(menu);
     xmenu.sort(sort_function);
     count_inner_elements(xmenu);
-	
-	if (xmenu.length == 0)
-	{
-		alert("error");
-	}
+    
+    if (xmenu.length == 0)
+    {
+        alert("error");
+    }
 
     html = "<ul>";
 
     if (is_cmp_place(sort_function))
     {
-		// Initial.
-		i = 0;
-		
-		while (i < xmenu.length)
-		{
-			xi = xmenu[i];
+        // Initial.
+        i = 0;
+        
+        while (i < xmenu.length)
+        {
+            xi = xmenu[i];
 
-			// First find all dates of this place.
+            // First find all dates of this place.
 
-			j = i + 1;
+            j = i + 1;
 
-			while (j < xmenu.length)
-			{
-				xj = xmenu[j];
+            while (j < xmenu.length)
+            {
+                xj = xmenu[j];
 
-				if ((xi.Place + xi.Country) != (xj.Place + xj.Country))
-				{
-					break;
-				}
-				
-				j++;
-			}
-			
-			// Now process all items from i to j - 1.
-			
-			html += "<li>";
-			html += xi_html_pcd(xi, 2, true);
-			i++;
-			
-			while (i < j)
-			{
-				xi = xmenu[i]
-				html += " " + xi_html_pcd(xi, 0, false);
-				i++;
-			}
-			
-			html += "</li>";
-		}
+                if ((xi.Place + xi.Country) != (xj.Place + xj.Country))
+                {
+                    break;
+                }
+                
+                j++;
+            }
+            
+            // Now process all items from i to j - 1.
+            
+            html += "<li>";
+            html += xi_html_pcd(xi, 2, true);
+            i++;
+            
+            while (i < j)
+            {
+                xi = xmenu[i]
+                html += " " + xi_html_pcd(xi, 0, false);
+                i++;
+            }
+            
+            html += "</li>";
+        }
     }
-	else if (is_cmp_country(sort_function))
-	{
-		// Initial.
-		i = 0;
+    else if (is_cmp_country(sort_function))
+    {
+        // Initial.
+        i = 0;
 
-		while (i < xmenu.length)
-		{
-			xi = xmenu[i];
-			
-			// First find all items of this country.
-			
-			k = i + 1;
-			
-			while (k < xmenu.length)
-			{
-				xk = xmenu[k];
-				
-				if (xk.Country != xi.Country)
-				{
-					break;
-				}
-				
-				k++;
-			}
-			
-			// From i to k - 1 are items from one country.
-			
-			html += "<li><b>" + xi.Country + "</b><br><br><ul>";
-			
-			while (i < k)
-			{
-				xi = xmenu[i];
-				
-				// Find all items from this place.
-				
-				j = i + 1;
-				
-				while (j < k)
-				{
-					xj = xmenu[j];
-					
-					if (xj.Place != xi.Place)
-					{
-						break;
-					}
-					
-					j++;
-				}
-				
-				// Print places from i to j - 1.
-				
-				html += "<li>";
-				html += xi_html_pcd(xi, 1, true);
-				i++;
-			
-				while (i < j)
-				{
-					xi = xmenu[i]
-					html += " " + xi_html_pcd(xi, 0, false);
-					i++;
-				}
-			
-				html += "</li>";
-			}
-			
-			html += "</ul><br></li>";
-		}
-	}
+        while (i < xmenu.length)
+        {
+            xi = xmenu[i];
+            
+            // First find all items of this country.
+            
+            k = i + 1;
+            
+            while (k < xmenu.length)
+            {
+                xk = xmenu[k];
+                
+                if (xk.Country != xi.Country)
+                {
+                    break;
+                }
+                
+                k++;
+            }
+            
+            // From i to k - 1 are items from one country.
+            
+            html += "<li><b>" + xi.Country + "</b><br><br><ul>";
+            
+            while (i < k)
+            {
+                xi = xmenu[i];
+                
+                // Find all items from this place.
+                
+                j = i + 1;
+                
+                while (j < k)
+                {
+                    xj = xmenu[j];
+                    
+                    if (xj.Place != xi.Place)
+                    {
+                        break;
+                    }
+                    
+                    j++;
+                }
+                
+                // Print places from i to j - 1.
+                
+                html += "<li>";
+                html += xi_html_pcd(xi, 1, true);
+                i++;
+            
+                while (i < j)
+                {
+                    xi = xmenu[i]
+                    html += " " + xi_html_pcd(xi, 0, false);
+                    i++;
+                }
+            
+                html += "</li>";
+            }
+            
+            html += "</ul><br></li>";
+        }
+    }
     else if (is_cmp_date(sort_function))
     {
         root_year = "";
@@ -898,7 +899,7 @@ function draw_menu(sort_function)
     }
     else
     {
-		alert("error");
+        alert("error");
     }
 
     html += "</ul>"
