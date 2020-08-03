@@ -528,7 +528,17 @@ function create_menu()
             ),
             new MenuItem("2018-12", "Россия", [new SubmenuItem("Переславль-Залесский", "")], "pereslavl-zalesskiy.18/index.html"),
             new MenuItem("2019-01", "ОАЭ", [new SubmenuItem("Рас-эль-Хайма", "")], "uae.19/index.html"),
-            new MenuItem("2020-02", "Россия", [new SubmenuItem("Большой Камень", "")], "short/bolshoy_kamen.0220/index.html")
+            new MenuItem("2020-02", "Россия", [new SubmenuItem("Большой Камень", "")], "short/bolshoy_kamen.0220/index.html"),
+            new MenuItem
+            (
+                "2020-07", "Россия",
+                [
+                    new SubmenuItem("Терскол", "terskol"),
+                    new SubmenuItem("г. Чегет", "cheget"),
+                    new SubmenuItem("г. Эльбрус", "elbrus")
+                ],
+                "elbrus.20/index.html"
+            )
         ];
 
     return arr;
