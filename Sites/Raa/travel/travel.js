@@ -538,6 +538,17 @@ function create_menu()
                     new SubmenuItem("г. Эльбрус", "elbrus")
                 ],
                 "elbrus.20/index.html"
+            ),
+            new MenuItem
+            (
+                "2020-08", "Россия",
+                [
+                    new SubmenuItem("Переславль-Залесский", "pereslavl"),
+                    new SubmenuItem("Ростов", "rostov"),
+                    new SubmenuItem("Ярославль", "yaroslavl"),
+                    new SubmenuItem("Кострома", "kostroma")
+                ],
+                "yaroslavl.20/index.html"
             )
         ];
 
