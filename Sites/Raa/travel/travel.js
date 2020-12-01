@@ -549,6 +549,17 @@ function create_menu()
                     new SubmenuItem("Кострома", "kostroma")
                 ],
                 "yaroslavl.20/index.html"
+            ),
+            new MenuItem
+            (
+                "2020-11", "Россия",
+                [
+                    new SubmenuItem("Луховицы (МО)", "lukhovitsy"),
+                    new SubmenuItem("Рязань", "ryazan"),
+                    new SubmenuItem("Солотча (РязО)", "solotcha"),
+                    new SubmenuItem("Истье (РязО)", "istye")
+                ],
+                "ryazan.20/index.html"
             )
         ];
 
