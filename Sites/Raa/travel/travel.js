@@ -550,16 +550,26 @@ function create_menu()
                 ],
                 "yaroslavl.20/index.html"
             ),
+            new MenuItem("2020-10", "Россия", [new SubmenuItem("с. Корсунь (ОрлО)", "korsunskaya_pustyn")], "singleshot/index.html"),
             new MenuItem
             (
                 "2020-11", "Россия",
                 [
                     new SubmenuItem("Луховицы (МО)", "lukhovitsy"),
                     new SubmenuItem("Рязань", "ryazan"),
-                    new SubmenuItem("Солотча (РязО)", "solotcha"),
-                    new SubmenuItem("Истье (РязО)", "istye")
+                    new SubmenuItem("с. Солотча (РязО)", "solotcha"),
+                    new SubmenuItem("с. Истье (РязО)", "istye")
                 ],
                 "ryazan.20/index.html"
+            ),
+            new MenuItem
+            (
+                "2020-12", "Россия",
+                [
+                    new SubmenuItem("с. Саввинская Слобода (МО)", "savvinskaya-sloboda"),
+                    new SubmenuItem("Истра (МО)", "istra")
+                ],
+                "monasteries.20/index.html"
             )
         ];
 
