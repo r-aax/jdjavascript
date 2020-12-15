@@ -570,7 +570,8 @@ function create_menu()
                     new SubmenuItem("Истра (МО)", "istra")
                 ],
                 "monasteries.20/index.html"
-            )
+            ),
+            new MenuItem("2020-12", "Россия", [new SubmenuItem("с. Дубровицы (МО)", "dubrovitsy")], "singleshot/index.html")
         ];
 
     return arr;
