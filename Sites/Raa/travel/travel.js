@@ -551,6 +551,7 @@ function create_menu()
                 "yaroslavl.20/index.html"
             ),
             new MenuItem("2020-10", "Россия", [new SubmenuItem("с. Корсунь (ОрлО)", "korsunskaya_pustyn")], "singleshot/index.html"),
+            new MenuItem("2020-10", "Россия", [new SubmenuItem("м. Корсунская Пустынь (ОрлО)", "korsunskaya_pustyn")], "singleshot/index.html"),
             new MenuItem
             (
                 "2020-11", "Россия",
@@ -558,6 +559,7 @@ function create_menu()
                     new SubmenuItem("Луховицы (МО)", "lukhovitsy"),
                     new SubmenuItem("Рязань", "ryazan"),
                     new SubmenuItem("с. Солотча (РязО)", "solotcha"),
+                    new SubmenuItem("м. Солотчинский Рождества Богородицы женский монастырь (РязО)", "solotcha"),
                     new SubmenuItem("с. Истье (РязО)", "istye")
                 ],
                 "ryazan.20/index.html"
@@ -567,11 +569,24 @@ function create_menu()
                 "2020-12", "Россия",
                 [
                     new SubmenuItem("с. Саввинская Слобода (МО)", "savvinskaya-sloboda"),
-                    new SubmenuItem("Истра (МО)", "istra")
+                    new SubmenuItem("м. Саввино-Сторожевский ставропигиальный мужской монастырь (МО)", "savvinskaya-sloboda"),
+                    new SubmenuItem("Истра (МО)", "istra"),
+                    new SubmenuItem("м. Воскресенский Ново-Иерусалимский ставропигиальный мужской монастырь (МО)", "istra")
                 ],
                 "monasteries.20/index.html"
             ),
-            new MenuItem("2020-12", "Россия", [new SubmenuItem("с. Дубровицы (МО)", "dubrovitsy")], "singleshot/index.html")
+            new MenuItem("2020-12", "Россия", [new SubmenuItem("с. Дубровицы (МО)", "dubrovitsy")], "singleshot/index.html"),
+            new MenuItem
+            (
+                "2021-01", "Россия",
+                [
+                    new SubmenuItem("с. Ленинские Горки (МО)", "leninskie-gorki"),
+                    new SubmenuItem("м. Крестовоздвиженский Иерусалимский монастырь (МО)", "krestovozdvizhenskiy"),
+                    new SubmenuItem("Дзержинский (МО)", "dzerzhinskiy"),
+                    new SubmenuItem("м. Николо-Угрешский мужской монастырь (МО)", "dzerzhinskiy")
+                ],
+                "leninskie-gorki.21/index.html"
+            )
         ];
 
     return arr;
