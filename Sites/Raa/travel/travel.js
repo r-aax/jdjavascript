@@ -586,7 +586,23 @@ function create_menu()
                     new SubmenuItem("м. Николо-Угрешский мужской монастырь (МО)", "dzerzhinskiy")
                 ],
                 "leninskie-gorki.21/index.html"
-            )
+            ),
+            new MenuItem("2021-02", "Россия", [new SubmenuItem("Магнитогорск", "magnitogorsk")], "singleshot.2021/index.html"),
+            new MenuItem("2021-02", "Россия", [new SubmenuItem("с. Новоабзаково (Башкортостан)", "novoabzakovo")], "singleshot.2021/index.html"),
+            new MenuItem("2021-06", "Россия", [new SubmenuItem("с. Ленинские Горки (МО)", "lenindkiegorki")], "singleshot.2021/index.html"),
+            new MenuItem("2021-06", "Россия", [new SubmenuItem("Кашира", "kashira")], "singleshot.2021/index.html"),
+            new MenuItem("2021-06", "Россия", [new SubmenuItem("Минеральные Воды", "minvody")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("г. Чегет", "cheget")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("г. Эльбрус", "elbrus")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("Пятигорск", "pyatigorsk")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("Кисловодск", "kislovodsk")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("Ессентуки", "essentuki")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("у. Адыр-Су", "adyrsu")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("Нальчик", "nalchik")], "singleshot.2021/index.html"),
+            new MenuItem("2021-07", "Россия", [new SubmenuItem("Этномир", "etnomir")], "singleshot.2021/index.html"),
+            new MenuItem("2021-08", "Россия", [new SubmenuItem("Ступино", "stupino")], "singleshot.2021/index.html"),
+            new MenuItem("2021-08", "Россия", [new SubmenuItem("с. Морозовка", "morozovka")], "singleshot.2021/index.html"),
+            new MenuItem("2021-09", "Россия", [new SubmenuItem("Коломна", "kolomna")], "singleshot.2021/index.html")
         ];
 
     return arr;
